@@ -2,9 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
 import { Button } from '@/components/ui/button'
-import { Globe } from 'lucide-react'
-import { LOCALE_COOKIE, SUPPORTED_LOCALES, type SiteLocale } from '@/lib/i18n'
+import { LOCALE_COOKIE, type SiteLocale } from '@/lib/i18n'
+import {
+  localizeHref,
+  switchLocalePath,
+  SUPPORTED_LOCALES,
+} from '@/lib/routing'
 import type { MenuItem } from '@/types/strapi'
 
 type LocaleHeaderProps = {
@@ -12,51 +17,48 @@ type LocaleHeaderProps = {
   menuItems?: MenuItem[]
 }
 
-function localizedHref(locale: SiteLocale, href: string) {
-  if (href.startsWith('http://') || href.startsWith('https://')) {
-    return href
-  }
-
-  const normalized = href === '/' ? '' : href
-  return `/${locale}${normalized}`
+const proposalLabel: Record<SiteLocale, string> = {
+  ru: 'Получить предложение',
+  en: 'Get proposal',
+  ar: 'اطلب عرضًا',
 }
 
-export function LocaleHeader({ locale, menuItems = [] }: LocaleHeaderProps) {
+export function LocaleHeader({
+  locale,
+  menuItems = [],
+}: LocaleHeaderProps) {
   const pathname = usePathname()
-
-  const switchLanguageHref = (targetLocale: SiteLocale) => {
-    if (!pathname) return `/${targetLocale}`
-
-    const parts = pathname.split('/').filter(Boolean)
-    if (parts.length === 0) return `/${targetLocale}`
-
-    parts[0] = targetLocale
-    return `/${parts.join('/')}`
-  }
 
   const handleLanguageClick = (value: SiteLocale) => {
     document.cookie = `${LOCALE_COOKIE}=${value}; path=/; max-age=31536000; samesite=lax`
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-background/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-        <Link href={`/${locale}`} className="text-lg font-semibold tracking-wide">
-          Atelier Meridian
+        <Link href={`/${locale}`} className="flex flex-col">
+          <span className="font-serif text-xl">Atelier Meridian</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            Product Architecture & Interface Studio
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
           {menuItems.map((item) => {
-            const href = localizedHref(locale, item.href)
+            const href = localizeHref(locale, item.href)
             const isActive = pathname === href
 
             return (
               <Link
-                key={`${item.href}-${item.label}`}
+                key={`${item.id}-${item.href}`}
                 href={href}
-                className={isActive ? 'text-foreground' : 'text-muted-foreground transition hover:text-foreground'}
                 target={item.openInNewTab ? '_blank' : undefined}
                 rel={item.openInNewTab ? 'noreferrer' : undefined}
+                className={
+                  isActive
+                    ? 'text-foreground'
+                    : 'text-muted-foreground transition-colors hover:text-foreground'
+                }
               >
                 {item.label}
               </Link>
@@ -64,20 +66,28 @@ export function LocaleHeader({ locale, menuItems = [] }: LocaleHeaderProps) {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Globe className="size-4 text-muted-foreground" />
-          {SUPPORTED_LOCALES.map((item) => (
-            <Link
-              key={item}
-              href={switchLanguageHref(item)}
-              onClick={() => handleLanguageClick(item)}
-              className={item === locale ? 'text-foreground' : 'text-muted-foreground'}
-            >
-              {item.toUpperCase()}
+        <div className="flex items-center gap-3">
+          <div className="hidden items-center gap-2 rounded-full border border-border/60 px-2 py-1 sm:flex">
+            {SUPPORTED_LOCALES.map((targetLocale) => (
+              <Link
+                key={targetLocale}
+                href={switchLocalePath(targetLocale, pathname)}
+                onClick={() => handleLanguageClick(targetLocale)}
+                className={`rounded-full px-2 py-1 text-xs uppercase tracking-[0.2em] ${
+                  targetLocale === locale
+                    ? 'bg-foreground text-background'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {targetLocale}
+              </Link>
+            ))}
+          </div>
+
+          <Button asChild className="hidden sm:inline-flex">
+            <Link href={localizeHref(locale, '/get-proposal')}>
+              {proposalLabel[locale]}
             </Link>
-          ))}
-          <Button asChild>
-            <Link href={`/${locale}/get-proposal`}>Get proposal</Link>
           </Button>
         </div>
       </div>

@@ -49,7 +49,10 @@ export async function getPageBySlug(slug: string, locale: SiteLocale = DEFAULT_L
     'populate[blocks][on][page.media-text][populate][image]': 'true',
     'populate[blocks][on][page.cards-grid][populate][items][populate][image]': 'true',
     'populate[blocks][on][page.video-section][populate][posterImage]': 'true',
+    'populate[blocks][on][page.video-section][populate][highlights]': 'true',
+    'populate[blocks][on][page.concept-nav][populate][items]': 'true',
     'populate[blocks][on][page.concept-section][populate][image]': 'true',
+    'populate[blocks][on][page.concept-section][populate][details]': 'true',
   })
 
   return fetchFromStrapi<PageResponse>(`/api/pages?${query.toString()}`, {

@@ -21,27 +21,27 @@ export function BlockRenderer({ blocks = [], locale }: { blocks?: CmsBlock[]; lo
           case 'page.hero':
             return <HeroBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.rich-text':
-            return <RichTextBlockView key={blockKey(block, index)} block={block} />
+            return <RichTextBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.media-text':
-            return <MediaTextBlockView key={blockKey(block, index)} block={block} />
+            return <MediaTextBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.cards-grid':
             return <CardsGridBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.video-section':
-            return <VideoSectionBlockView key={blockKey(block, index)} block={block} />
+            return <VideoSectionBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.steps':
-            return <StepsBlockView key={blockKey(block, index)} block={block} />
+            return <StepsBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.statements-strip':
-            return <StatementsStripBlockView key={blockKey(block, index)} block={block} />
+            return <StatementsStripBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.concept-nav':
-            return <ConceptNavBlockView key={blockKey(block, index)} block={block} />
+            return <ConceptNavBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.concept-section':
             return <ConceptSectionBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.faq':
-            return <FaqBlockView key={blockKey(block, index)} block={block} />
+            return <FaqBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.cta':
             return <CtaBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.form-section':
-            return <FormSectionBlockView key={blockKey(block, index)} block={block} />
+            return <FormSectionBlockView key={blockKey(block, index)} block={block} locale={locale} />
           default:
             return null
         }

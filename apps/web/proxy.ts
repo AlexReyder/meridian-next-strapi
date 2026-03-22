@@ -1,6 +1,15 @@
-import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { DEFAULT_LOCALE, isSupportedLocale, LOCALE_COOKIE, SUPPORTED_LOCALES } from '@/lib/i18n'
+import { NextResponse } from 'next/server'
+
+import { LOCALE_COOKIE } from '@/lib/i18n'
+import {
+  DEFAULT_LOCALE,
+  isSupportedLocale,
+  parseLocalizedPathname,
+  pagePath,
+  resolveCanonicalSlug,
+  SUPPORTED_LOCALES,
+} from '@/lib/routing'
 
 function detectLocale(request: NextRequest) {
   const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value
@@ -28,24 +37,44 @@ function detectLocale(request: NextRequest) {
   return DEFAULT_LOCALE
 }
 
+function shouldBypass(pathname: string) {
+  return (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/uploads') ||
+    pathname === '/favicon.ico' ||
+    pathname.includes('.')
+  )
+}
+
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  if (pathname.startsWith('/_next') || pathname.startsWith('/api') || pathname.includes('.')) {
+  if (shouldBypass(pathname)) {
     return NextResponse.next()
   }
 
-  const pathnameHasLocale = SUPPORTED_LOCALES.some((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`))
+  const pathnameHasLocale = SUPPORTED_LOCALES.some(
+    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
+  )
 
-  if (pathnameHasLocale) {
-    return NextResponse.next()
+  if (!pathnameHasLocale) {
+    const locale = detectLocale(request)
+    const slug = resolveCanonicalSlug(pathname.replace(/^\/+/, '')) ?? 'home'
+    const url = request.nextUrl.clone()
+    url.pathname = pagePath(locale, slug)
+    return NextResponse.redirect(url)
   }
 
-  const locale = detectLocale(request)
-  const url = request.nextUrl.clone()
-  url.pathname = `/${locale}${pathname === '/' ? '' : pathname}`
+  const { locale, slug, isLegacyAlias } = parseLocalizedPathname(pathname)
 
-  return NextResponse.redirect(url)
+  if (isLegacyAlias) {
+    const url = request.nextUrl.clone()
+    url.pathname = pagePath(locale, slug)
+    return NextResponse.redirect(url)
+  }
+
+  return NextResponse.next()
 }
 
 export const config = {

@@ -1,385 +1,1030 @@
-export const HOME_SEED = {
-  ru: {
-    global: {
+export const MERIDIAN_SEED = {
+  global: {
+    ru: {
       siteName: 'Atelier Meridian',
-      siteDescription:
-        'Бутиковая студия продуктовой архитектуры. Структурируем сложные digital-продукты до начала разработки.',
+      siteDescription: 'Бутиковая студия продуктовой архитектуры. Структурируем сложные digital‑продукты до начала разработки.',
       contactEmail: 'hello@atelier-meridian.com',
       defaultSeo: {
-        metaTitle: 'Atelier Meridian — Product Architecture & Interface Studio',
-        metaDescription:
-          'Проектируем сайты, digital-системы и mobile apps до начала разработки. Product framing, UX-архитектура и premium interface design.',
+        metaTitle: 'Atelier Meridian — Проектируем сайты, digital‑системы и mobile apps',
+        metaDescription: 'Дизайн сайтов, digital‑систем и мобильных приложений с продуктовой логикой и понятной структурой.',
       },
       menuItems: [
         { label: 'Решения', href: '/solutions', openInNewTab: false },
         { label: 'Для стартапов', href: '/for-startups', openInNewTab: false },
-        { label: 'Для партнёров', href: '/for-agencies', openInNewTab: false },
+        { label: 'Для агентств', href: '/for-agencies', openInNewTab: false },
         { label: 'Цены', href: '/pricing', openInNewTab: false },
         { label: 'Как мы работаем', href: '/method', openInNewTab: false },
         { label: 'Концепты', href: '/concepts', openInNewTab: false },
-        { label: 'Получить предложение', href: '/get-proposal', openInNewTab: false }
-      ]
+        { label: 'Получить предложение', href: '/get-proposal', openInNewTab: false },
+      ],
     },
-    page: {
-      title: 'Главная',
-      slug: 'home',
-      template: 'home',
-      seo: {
-        metaTitle: 'Atelier Meridian — Проектируем сайты, digital‑системы и mobile apps',
-        metaDescription:
-          'Делаем дизайн сайтов, интерфейсов B2B-платформ и мобильных приложений с продуктовой логикой и понятной структурой.'
-      },
-      blocks: [
-        {
-          __component: 'page.hero',
-          eyebrow: 'UX/UI Design Studio',
-          title: 'Проектируем сайты, digital‑системы и mobile apps до начала разработки',
-          description:
-            '<p>Делаем дизайн сайтов, интерфейсов B2B-платформ и мобильных приложений с продуктовой логикой и понятной структурой.</p>',
-          primaryCtaLabel: 'Получить предложение',
-          primaryCtaHref: '/get-proposal',
-          secondaryCtaLabel: 'Посмотреть цены',
-          secondaryCtaHref: '/pricing'
-        },
-        {
-          __component: 'page.cards-grid',
-          sectionId: 'value',
-          title: 'Для проектов, которые нужно не просто нарисовать, а объяснить, согласовать и запустить',
-          description:
-            'Работаем с сайтами, digital-системами, порталами, dashboards и мобильными приложениями.',
-          items: [
-            {
-              title: 'Raise — Привлечь инвестиции',
-              description:
-                'Investor-ready prototype сайта, web-продукта или mobile app. Визуализация, которая говорит на языке инвестора.'
-            },
-            {
-              title: 'Win — Выиграть сделку',
-              description:
-                'Presale материалы для сложных B2B-сделок. Понятная архитектура системы или портала, которая убеждает enterprise-клиентов.'
-            },
-            {
-              title: 'Build — Передать в разработку',
-              description:
-                'Build-ready дизайн сайта, системы или приложения. Разработчики понимают, что делать, без лишних вопросов.'
-            }
-          ]
-        },
-        {
-          __component: 'page.cards-grid',
-          sectionId: 'deliverables',
-          title: 'Что вы получаете на первом этапе',
-          description: 'Что входит в работу',
-          items: [
-            {
-              title: 'Структурная рамка проекта',
-              description: 'Цели, контекст, границы scope — одним документом.'
-            },
-            {
-              title: 'Карта ролей и прав доступа',
-              description: 'Кто видит что и почему. Структура до проектирования экранов.'
-            },
-            {
-              title: 'Core User Flows',
-              description: 'Основные сценарии использования в деталях.'
-            },
-            {
-              title: 'Экранная матрица',
-              description: 'Все экраны продукта, структурированные по ролям и состояниям.'
-            },
-            {
-              title: 'Визуальное направление',
-              description: 'Эстетика, стиль, референсы — согласованы до design-этапа.'
-            },
-            {
-              title: 'Интерактивный прототип',
-              description: 'Premium прототип для презентаций и тестирования.'
-            },
-            {
-              title: 'Базовая система компонентов',
-              description: 'Базовые компоненты, готовые к масштабированию.'
-            },
-            {
-              title: 'Сводка для передачи в разработку',
-              description: 'Всё, что нужно разработчику, чтобы начать без вопросов.'
-            }
-          ]
-        },
-        {
-          __component: 'page.cards-grid',
-          sectionId: 'why',
-          title: 'Почему Atelier Meridian',
-          description: 'Проектируем дизайн сайтов, digital-систем и мобильных приложений с продуктовым подходом.',
-          items: [
-            {
-              title: 'Экспертный подход senior-уровня',
-              description: 'Каждый проект ведёт опытный product-архитектор. Без junior-итераций, без пересогласований основ.'
-            },
-            {
-              title: 'AI-ускоренный workflow',
-              description: 'Используем AI для рутинных задач — больше времени на стратегические решения и качество.'
-            },
-            {
-              title: 'Структурированные спринты',
-              description: 'Понятный scope, фиксированные сроки, предсказуемый результат. Никаких сюрпризов.'
-            },
-            {
-              title: 'Без agency overhead',
-              description: 'Бутиковый формат без лишних слоёв менеджмента. Работаете напрямую с теми, кто делает.'
-            }
-          ]
-        },
-        {
-          __component: 'page.cards-grid',
-          sectionId: 'audience',
-          title: 'Кому мы помогаем',
-          description: 'Для кого',
-          items: [
-            {
-              title: 'Founders и startup-команды',
-              description:
-                'Нужен дизайн сайта, landing page или mobile app для презентации инвестору. Превращаем идею в структурированный прототип сайта или приложения.'
-            },
-            {
-              title: 'Агентства и integrators',
-              description:
-                'Нужен дизайн сайта, портала или системы для клиента, но нет ресурсов. White-label дизайн сайтов, mobile apps, B2B-систем под вашим брендом.'
-            },
-            {
-              title: 'B2B-команды и enterprise',
-              description:
-                'Нужен дизайн портала, dashboard или внутренней системы с ясной логикой. Проектируем интерфейсы B2B-платформ, порталов и корпоративных систем.'
-            }
-          ]
-        },
-        {
-          __component: 'page.cta',
-          sectionId: 'concepts',
-          title: 'Посмотреть типовые концепты студии',
-          description:
-            'Примеры направлений для B2B-платформ, мобильных приложений, клиентских порталов и premium сайтов.',
-          buttonLabel: 'Посмотреть концепты',
-          buttonHref: '/concepts'
-        },
-        {
-          __component: 'page.cards-grid',
-          sectionId: 'method',
-          title: 'Метод работы',
-          description: 'Async-first подход. Меньше лишних созвонов, понятный scope, быстрее согласование.',
-          items: [
-            {
-              title: '01 — Scope',
-              description: 'Определяем границы проекта, роли и ключевые сценарии. Асинхронный бриф, документ по scope, оценка сроков.'
-            },
-            {
-              title: '02 — Frame',
-              description: 'Формулируем продуктовую логику. Согласование целей, карта ограничений и критерии успеха.'
-            },
-            {
-              title: '03 — Architect',
-              description: 'Проектируем UX-архитектуру: роли, flows, screen structure. До первого пикселя дизайна.'
-            },
-            {
-              title: '04 — Design',
-              description: 'Создаём premium интерфейсы. Визуальное направление, UI-система и интерактивный прототип.'
-            },
-            {
-              title: '05 — Deliver',
-              description: 'Передаём в разработку с понятной документацией — без лишних вопросов.'
-            }
-          ]
-        },
-        {
-          __component: 'page.cards-grid',
-          sectionId: 'pricing',
-          title: 'Форматы работы',
-          description: 'Packages',
-          items: [
-            {
-              title: 'Product Framing Sprint — от $5,400 / 2–3 недели',
-              description:
-                'Структурирование продукта с нуля: product framing, роли, core flows, экранная матрица, визуальные рекомендации.'
-            },
-            {
-              title: 'Build-Ready Prototype — от $6,900 / 4–5 недель',
-              description:
-                'Полный цикл от идеи до прототипа. Всё для презентации инвестору или старта разработки.'
-            },
-            {
-              title: 'White-Label Partner Desk — от $6,500 / ongoing',
-              description:
-                'Для партнёров и integrators. Продуктовый дизайн под вашим брендом для ваших клиентов.'
-            }
-          ]
-        },
-        {
-          __component: 'page.cards-grid',
-          sectionId: 'proposal-steps',
-          title: 'Закажите дизайн сайта, системы или приложения',
-          description:
-            'Расскажите о проекте — сайт, портал, B2B-система или mobile app. Мы предложим формат работы, сроки и стоимость без обязательного звонка.',
-          items: [
-            {
-              title: 'Оставьте бриф',
-              description: 'Опишите сайт, систему или приложение.'
-            },
-            {
-              title: 'Получите рекомендацию',
-              description: 'Формат, сроки и ориентир по стоимости.'
-            },
-            {
-              title: 'Подтвердите следующий шаг',
-              description: 'Или пришлите дополнительные материалы.'
-            }
-          ]
-        },
-        {
-          __component: 'page.form-section',
-          sectionId: 'proposal-form',
-          title: 'Получить предложение',
-          description:
-            'Для сайта, mobile app, портала или digital-системы. Файлы принимаются до 50 MB на файл.',
-          submitLabel: 'Получить предложение',
-          successMessage:
-            'Спасибо. Мы получили ваш бриф и вернёмся с рекомендацией по формату работы, срокам и стоимости.',
-          acceptsFiles: true,
-          maxFileSizeMb: 50
-        },
-        {
-          __component: 'page.cards-grid',
-          sectionId: 'trust',
-          title: 'Что мы проектируем',
-          description: 'Сфокусированы на продуктах, которые нужно не только красиво показать, но и структурировать.',
-          items: [
-            { title: 'Дизайн сайтов, порталов и B2B-систем' },
-            { title: 'Мобильные приложения и dashboards' },
-            { title: 'Редизайн и UX/UI-улучшение' },
-            { title: 'От структуры до передачи в разработку' }
-          ]
-        },
-        {
-          __component: 'page.faq',
-          sectionId: 'faq',
-          title: 'Частые вопросы',
-          items: [
-            {
-              question: 'С какими проектами вы работаете?',
-              answer:
-                '<p>Мы проектируем сайты, корпоративные порталы, B2B-платформы, клиентские системы, dashboards и мобильные приложения. Работаем как с новыми проектами, так и с редизайном существующих продуктов.</p>'
-            },
-            {
-              question: 'Что я получу после отправки brief?',
-              answer:
-                '<p>В течение 24–48 часов вы получите рекомендацию по формату работы, ориентир по срокам и стартовую стоимость — для сайта, системы или приложения любой сложности.</p>'
-            },
-            {
-              question: 'Можно ли работать без звонков?',
-              answer:
-                '<p>Да, мы работаем async-first. Большинство коммуникации происходит в письменном формате. Созвоны — по необходимости и с понятной agenda.</p>'
-            },
-            {
-              question: 'Поддерживаете ли вы white-label формат?',
-              answer:
-                '<p>Да. Для партнёров и integrators у нас есть White-Label Partner Desk. Вы получаете premium дизайн сайтов, систем и приложений под своим брендом.</p>'
-            },
-            {
-              question: 'Можно ли прийти с существующим сайтом или системой для редизайна?',
-              answer:
-                '<p>Конечно. Мы работаем как с идеями на этапе концепции, так и с редизайном существующих сайтов, порталов и digital-продуктов.</p>'
-            },
-            {
-              question: 'Подписываете ли вы NDA?',
-              answer:
-                '<p>Да, стандартная практика. Отправьте ваш NDA или используйте наш шаблон — подпишем до начала обсуждения деталей.</p>'
-            },
-            {
-              question: 'Как быстро может стартовать проект?',
-              answer:
-                '<p>Обычно через 3–5 рабочих дней после согласования scope и оплаты. При срочной необходимости — обсуждаем приоритетный старт.</p>'
-            },
-            {
-              question: 'Вы помогаете только с дизайном или со структурой продукта тоже?',
-              answer:
-                '<p>Мы начинаем со структуры. Product framing, UX-архитектура, роли и flows — это основа. Дизайн сайта, системы или приложения строится на этом фундаменте.</p>'
-            }
-          ]
-        },
-        {
-          __component: 'page.cta',
-          sectionId: 'final-cta',
-          title: 'Закажите дизайн сайта, digital-системы или мобильного приложения',
-          description:
-            'Опишите проект — сайт, портал, B2B-платформу или mobile app. Мы подготовим структурированное предложение с форматом работы, сроками и стоимостью.',
-          buttonLabel: 'Получить предложение',
-          buttonHref: '/get-proposal'
-        }
-      ]
-    }
-  },
-  en: {
-    global: {
+    en: {
       siteName: 'Atelier Meridian',
-      siteDescription:
-        'Boutique product architecture studio. We structure complex digital products before development starts.',
+      siteDescription: 'Boutique product architecture studio. We structure complex digital products before development begins.',
       contactEmail: 'hello@atelier-meridian.com',
       defaultSeo: {
-        metaTitle: 'Atelier Meridian — Product Architecture & Interface Studio',
-        metaDescription:
-          'We design websites, digital systems and mobile apps before development starts. Product framing, UX architecture and premium interface design.'
+        metaTitle: 'Atelier Meridian — Websites, digital systems, and mobile apps before development',
+        metaDescription: 'Premium UX/UI design for websites, digital systems, client portals, dashboards, and mobile apps.',
       },
       menuItems: [
         { label: 'Solutions', href: '/solutions', openInNewTab: false },
         { label: 'For startups', href: '/for-startups', openInNewTab: false },
-        { label: 'For partners', href: '/for-agencies', openInNewTab: false },
+        { label: 'For agencies', href: '/for-agencies', openInNewTab: false },
         { label: 'Pricing', href: '/pricing', openInNewTab: false },
-        { label: 'How we work', href: '/method', openInNewTab: false },
+        { label: 'Method', href: '/method', openInNewTab: false },
         { label: 'Concepts', href: '/concepts', openInNewTab: false },
-        { label: 'Get proposal', href: '/get-proposal', openInNewTab: false }
-      ]
+        { label: 'Get proposal', href: '/get-proposal', openInNewTab: false },
+      ],
     },
-    page: {
-      title: 'Home',
-      slug: 'home',
-      template: 'home',
-      seo: {
-        metaTitle: 'Atelier Meridian — Websites, digital systems and mobile apps',
-        metaDescription:
-          'We design websites, interfaces for B2B platforms and mobile applications with product logic and clear structure.'
-      },
-      blocks: []
-    }
-  },
-  ar: {
-    global: {
+    ar: {
       siteName: 'Atelier Meridian',
-      siteDescription:
-        'استوديو متخصص في هيكلة المنتجات الرقمية. نساعد على تنظيم المنتجات المعقدة قبل بدء التطوير.',
+      siteDescription: 'استوديو متخصص في بنية المنتجات. نُهيكل المنتجات الرقمية المعقدة قبل بدء التطوير.',
       contactEmail: 'hello@atelier-meridian.com',
       defaultSeo: {
-        metaTitle: 'Atelier Meridian — Product Architecture & Interface Studio',
-        metaDescription:
-          'نصمم المواقع والأنظمة الرقمية وتطبيقات الجوال قبل بدء التطوير مع منطق منتجي وبنية واضحة.'
+        metaTitle: 'Atelier Meridian — نصمم المواقع والأنظمة الرقمية وتطبيقات الجوال قبل التطوير',
+        metaDescription: 'تصميم UX/UI متميز للمواقع والأنظمة الرقمية وبوابات العملاء ولوحات التحكم وتطبيقات الجوال.',
       },
       menuItems: [
         { label: 'الحلول', href: '/solutions', openInNewTab: false },
         { label: 'للشركات الناشئة', href: '/for-startups', openInNewTab: false },
-        { label: 'للشركاء', href: '/for-agencies', openInNewTab: false },
+        { label: 'للوكالات', href: '/for-agencies', openInNewTab: false },
         { label: 'الأسعار', href: '/pricing', openInNewTab: false },
-        { label: 'كيف نعمل', href: '/method', openInNewTab: false },
+        { label: 'المنهجية', href: '/method', openInNewTab: false },
         { label: 'المفاهيم', href: '/concepts', openInNewTab: false },
-        { label: 'احصل على عرض', href: '/get-proposal', openInNewTab: false }
-      ]
+        { label: 'اطلب عرضاً', href: '/get-proposal', openInNewTab: false },
+      ],
     },
-    page: {
-      title: 'الرئيسية',
-      slug: 'home',
-      template: 'home',
-      seo: {
-        metaTitle: 'Atelier Meridian — تصميم المواقع والأنظمة الرقمية وتطبيقات الجوال',
-        metaDescription:
-          'نصمم المواقع وواجهات منصات B2B وتطبيقات الجوال بمنطق منتجي وبنية واضحة.'
+  },
+  pages: {
+    home: {
+      ru: {
+        title: 'Главная',
+        slug: 'home',
+        template: 'home',
+        seo: {
+          metaTitle: 'Atelier Meridian — Проектируем сайты, digital‑системы и mobile apps',
+          metaDescription: 'Проектируем сайты, интерфейсы B2B‑платформ и мобильных приложений с продуктовой логикой и понятной структурой.',
+        },
+        blocks: [
+          {
+            __component: 'page.hero',
+            sectionId: 'hero',
+            eyebrow: 'UX/UI Design Studio',
+            title: 'Проектируем сайты, digital‑системы и mobile apps до начала разработки',
+            description:
+              'Atelier Meridian помогает founders, B2B‑командам, агентствам и integrators превратить rough idea, сложный workflow или продуктовую задачу в ясную структуру, сильный интерфейс и понятный следующий шаг.',
+            primaryCtaLabel: 'Получить предложение',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'Посмотреть цены',
+            secondaryCtaHref: '/pricing',
+            tags: [
+              { label: 'Landing pages и сайты' },
+              { label: 'Digital systems' },
+              { label: 'Client portals' },
+              { label: 'Dashboards' },
+              { label: 'Mobile apps' },
+              { label: 'Redesign' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'value',
+            title: 'Для проектов, которые нужно не просто нарисовать, а объяснить, согласовать и запустить',
+            description: 'Работаем с сайтами, digital‑системами, порталами, dashboards и мобильными приложениями.',
+            variant: 'outcomes',
+            columns: '3',
+            items: [
+              {
+                title: 'Raise — Привлечь инвестиции',
+                description: 'Investor-ready prototype сайта, web-продукта или mobile app. Визуализация, которая говорит на языке инвестора.',
+              },
+              {
+                title: 'Win — Выиграть сделку',
+                description: 'Presale-материалы для сложных B2B‑сделок. Понятная архитектура системы или портала, которая убеждает enterprise‑клиентов.',
+              },
+              {
+                title: 'Build — Передать в разработку',
+                description: 'Build-ready дизайн сайта, системы или приложения. Разработчики понимают, что делать, без лишних вопросов.',
+              },
+            ],
+          },
+          {
+            __component: 'page.video-section',
+            sectionId: 'walkthrough',
+            eyebrow: 'Walkthrough',
+            title: 'Показываем, как выглядит путь проекта: от brief и структуры до prototype и handoff-материалов',
+            description: 'Короткий walkthrough процесса — что мы структурируем, какие материалы готовим и как результат используется для pitch или передачи в разработку.',
+            highlights: [
+              { text: 'Как мы разбираем входящую задачу' },
+              { text: 'Как появляется продуктовая структура и сценарии' },
+              { text: 'Как выглядит кликабельный prototype' },
+              { text: 'Что получает клиент для следующего этапа' },
+            ],
+            videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            note: 'Видео позже можно заменить на реальный walkthrough.',
+            primaryCtaLabel: 'Получить предложение',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'Посмотреть цены',
+            secondaryCtaHref: '/pricing',
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'deliverables',
+            title: 'Что вы получаете на первом этапе',
+            description: 'Формируем ясную основу проекта до начала визуального дизайна и разработки.',
+            variant: 'deliverables',
+            columns: '4',
+            items: [
+              { title: 'Структурная рамка проекта', description: 'Цели, контекст и границы scope — одним документом.' },
+              { title: 'Карта ролей и прав доступа', description: 'Кто видит что и почему. Структура до проектирования экранов.' },
+              { title: 'Core User Flows', description: 'Основные пользовательские сценарии в деталях.' },
+              { title: 'Экранная матрица', description: 'Все ключевые экраны, сгруппированные по ролям и состояниям.' },
+              { title: 'Визуальное направление', description: 'Эстетика, стиль и референсы — согласованы до design-этапа.' },
+              { title: 'Интерактивный прототип', description: 'Premium prototype для презентаций и тестирования.' },
+              { title: 'Базовая система компонентов', description: 'Базовые компоненты, готовые к масштабированию.' },
+              { title: 'Сводка для handoff', description: 'Всё, что нужно dev‑команде, чтобы стартовать без лишних вопросов.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'why',
+            title: 'Почему Atelier Meridian',
+            description: 'Проектируем сайты, digital‑системы и мобильные приложения с продуктовым подходом.',
+            variant: 'pillars',
+            columns: '4',
+            items: [
+              { title: 'Экспертный senior‑подход', description: 'Каждый проект ведёт опытный product‑архитектор, без junior‑прослойки.' },
+              { title: 'AI‑ускоренный workflow', description: 'Рутину автоматизируем, а время тратим на стратегию и качество.' },
+              { title: 'Структурированные спринты', description: 'Понятный scope, фиксированные сроки, предсказуемый результат.' },
+              { title: 'Бутиковый формат', description: 'Без лишнего agency overhead — работаете напрямую с теми, кто делает.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'audience',
+            title: 'Кому мы помогаем',
+            description: 'Для founders, агентств, integrators и B2B‑команд.',
+            variant: 'audience',
+            columns: '3',
+            items: [
+              { title: 'Founders и startup‑команды', description: 'Нужен сайт, landing page или mobile app для презентации инвестору и старта разработки.' },
+              { title: 'Агентства и integrators', description: 'Нужен white-label дизайн сайта, портала или системы под вашим брендом.' },
+              { title: 'B2B и enterprise‑команды', description: 'Нужен портал, dashboard или внутренняя система с ясной логикой и ролью каждого экрана.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'concepts',
+            title: 'Посмотреть типовые концепты студии',
+            description: 'Примеры направлений для B2B‑платформ, мобильных приложений, клиентских порталов и premium сайтов.',
+            buttonLabel: 'Посмотреть концепты',
+            buttonHref: '/concepts',
+          },
+          {
+            __component: 'page.steps',
+            sectionId: 'method',
+            eyebrow: 'Method',
+            title: 'Как мы работаем',
+            description: 'Async‑first подход. Меньше лишних созвонов, понятный scope и быстрое согласование.',
+            variant: 'method',
+            items: [
+              { number: '01', title: 'Scope', description: 'Определяем границы проекта, роли и ключевые сценарии.' },
+              { number: '02', title: 'Frame', description: 'Формулируем продуктовую логику, цели и критерии успеха.' },
+              { number: '03', title: 'Architect', description: 'Проектируем UX‑архитектуру: роли, flows и screen structure.' },
+              { number: '04', title: 'Design', description: 'Создаём premium интерфейсы и интерактивный prototype.' },
+              { number: '05', title: 'Deliver', description: 'Передаём всё в разработку с понятной документацией.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'pricing',
+            title: 'Форматы работы',
+            description: 'Выберите подходящий формат или начните с brief.',
+            variant: 'pricing',
+            columns: '3',
+            items: [
+              { title: 'Product Framing Sprint', description: 'От $5,400 / 2–3 недели. Product framing, роли, core flows и screen matrix.' },
+              { title: 'Build‑Ready Prototype', description: 'От $6,900 / 4–5 недель. Полный путь от идеи до кликабельного prototype.' },
+              { title: 'White‑Label Partner Desk', description: 'От $6,500 / ongoing. Для партнёров и integrators под вашим брендом.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'trust',
+            title: 'Что мы проектируем',
+            description: 'Сфокусированы на продуктах, которые нужно не только красиво показать, но и структурировать.',
+            variant: 'trust',
+            columns: '4',
+            items: [
+              { title: 'Дизайн сайтов, порталов и B2B‑систем' },
+              { title: 'Мобильные приложения и dashboards' },
+              { title: 'Редизайн и UX/UI‑улучшение' },
+              { title: 'От структуры до передачи в разработку' },
+            ],
+          },
+          {
+            __component: 'page.faq',
+            sectionId: 'faq',
+            title: 'Частые вопросы',
+            items: [
+              { question: 'С какими проектами вы работаете?', answer: 'Мы проектируем сайты, корпоративные порталы, B2B‑платформы, client systems, dashboards и mobile apps. Работаем как с новыми проектами, так и с redesign.' },
+              { question: 'Что я получу после brief?', answer: 'В течение 24–48 часов вы получите рекомендацию по формату работы, ориентир по срокам и стартовую стоимость.' },
+              { question: 'Можно ли работать без звонков?', answer: 'Да. Мы работаем async‑first, большая часть коммуникации происходит письменно.' },
+              { question: 'Поддерживаете ли white‑label формат?', answer: 'Да. Для агентств и integrators у нас есть White‑Label Partner Desk.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'final-cta',
+            title: 'Закажите дизайн сайта, digital‑системы или mobile app',
+            description: 'Опишите проект — мы подготовим структурированное предложение с форматом работы, сроками и стоимостью.',
+            buttonLabel: 'Получить предложение',
+            buttonHref: '/get-proposal',
+          },
+        ],
       },
-      blocks: []
-    }
-  }
-} as const;
+      en: {
+        title: 'Home',
+        slug: 'home',
+        template: 'home',
+        seo: {
+          metaTitle: 'Atelier Meridian — We design websites, digital systems, and mobile apps before development begins',
+          metaDescription: 'Premium UX/UI design for websites, digital systems, client portals, dashboards, and mobile apps.',
+        },
+        blocks: [
+          {
+            __component: 'page.hero',
+            sectionId: 'hero',
+            eyebrow: 'UX/UI Design Studio',
+            title: 'We design websites, digital systems, and mobile apps before development begins',
+            description:
+              'Atelier Meridian helps founders, B2B teams, agencies, and integrators turn rough ideas, complex workflows, and product requirements into clear structure, premium interfaces, and a confident next step.',
+            primaryCtaLabel: 'Get Proposal',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'View Pricing',
+            secondaryCtaHref: '/pricing',
+            tags: [
+              { label: 'Websites' },
+              { label: 'Corporate Sites' },
+              { label: 'Digital Systems' },
+              { label: 'Client Portals' },
+              { label: 'Dashboards' },
+              { label: 'Mobile Apps' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'value',
+            title: 'For projects that need more than visuals — they need to be clarified, aligned, and launched',
+            description: 'We work with websites, digital systems, portals, dashboards, and mobile apps.',
+            variant: 'outcomes',
+            columns: '3',
+            items: [
+              { title: 'Raise — Investor-ready', description: 'A prototype or concept that speaks the language of investors and internal stakeholders.' },
+              { title: 'Win — Presale support', description: 'Product structure and interface materials that make complex B2B solutions easier to buy.' },
+              { title: 'Build — Dev-ready handoff', description: 'A design package developers can build from without losing time on assumptions.' },
+            ],
+          },
+          {
+            __component: 'page.video-section',
+            sectionId: 'walkthrough',
+            eyebrow: 'Walkthrough',
+            title: 'See how we move from brief and structure to prototype and handoff materials',
+            description: 'A short walkthrough of how an incoming task becomes product structure, working materials, and a clickable prototype.',
+            highlights: [
+              { text: 'How we analyze the incoming task' },
+              { text: 'How structure and user scenarios emerge' },
+              { text: 'What the clickable prototype looks like' },
+              { text: 'How the result supports pitch or dev handoff' },
+            ],
+            videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            note: 'Replace with the production walkthrough video later.',
+            primaryCtaLabel: 'Get Proposal',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'View Pricing',
+            secondaryCtaHref: '/pricing',
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'deliverables',
+            title: 'What you get in the first phase',
+            description: 'A clear product foundation before visual design and development begin.',
+            variant: 'deliverables',
+            columns: '4',
+            items: [
+              { title: 'Project frame', description: 'Goals, context, and scope boundaries in one place.' },
+              { title: 'Roles and permissions map', description: 'Who sees what and why, before screen design starts.' },
+              { title: 'Core user flows', description: 'The primary user journeys in detail.' },
+              { title: 'Screen matrix', description: 'Key screens organized by role and state.' },
+              { title: 'Visual direction', description: 'Style, references, and aesthetic direction aligned early.' },
+              { title: 'Interactive prototype', description: 'A premium prototype for validation and presentations.' },
+              { title: 'Component baseline', description: 'A scalable interface foundation.' },
+              { title: 'Handoff summary', description: 'Everything the dev team needs for the next stage.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'why',
+            title: 'Why Atelier Meridian',
+            description: 'Product-minded design for websites, digital systems, and mobile apps.',
+            variant: 'pillars',
+            columns: '4',
+            items: [
+              { title: 'Senior-level ownership', description: 'Every project is led by an experienced product designer or architect.' },
+              { title: 'AI-accelerated workflow', description: 'Routine is automated so more time goes to strategic decisions and quality.' },
+              { title: 'Structured sprints', description: 'Clear scope, realistic timelines, and predictable outcomes.' },
+              { title: 'Boutique delivery', description: 'No unnecessary agency overhead — you work directly with the makers.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'audience',
+            title: 'Who this is for',
+            description: 'For founders, agencies, integrators, and B2B teams.',
+            variant: 'audience',
+            columns: '3',
+            items: [
+              { title: 'Founders and startup teams', description: 'Need a website, landing page, or mobile app that is investor- and launch-ready.' },
+              { title: 'Agencies and integrators', description: 'Need white-label design capacity for websites, portals, or systems.' },
+              { title: 'B2B and enterprise teams', description: 'Need a portal, dashboard, or internal system with clear logic and role-based structure.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'concepts',
+            title: 'Explore typical concept directions',
+            description: 'Examples for B2B platforms, mobile apps, client portals, and premium marketing sites.',
+            buttonLabel: 'View Concepts',
+            buttonHref: '/concepts',
+          },
+          {
+            __component: 'page.steps',
+            sectionId: 'method',
+            eyebrow: 'Method',
+            title: 'How we work',
+            description: 'Async-first. Less noise, more structure, faster decisions.',
+            variant: 'method',
+            items: [
+              { number: '01', title: 'Scope', description: 'We define boundaries, roles, and key scenarios.' },
+              { number: '02', title: 'Frame', description: 'We clarify product logic, goals, and success criteria.' },
+              { number: '03', title: 'Architect', description: 'We design roles, flows, and screen structure before visuals.' },
+              { number: '04', title: 'Design', description: 'We create premium interfaces and a clickable prototype.' },
+              { number: '05', title: 'Deliver', description: 'We hand off a package the development team can move on with.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'pricing',
+            title: 'Ways to work together',
+            description: 'Choose a format or start with a brief.',
+            variant: 'pricing',
+            columns: '3',
+            items: [
+              { title: 'Product Framing Sprint', description: 'From $5,400 / 2–3 weeks. Product framing, roles, core flows, and screen matrix.' },
+              { title: 'Build-Ready Prototype', description: 'From $6,900 / 4–5 weeks. From idea to clickable prototype and handoff.' },
+              { title: 'White-Label Partner Desk', description: 'From $6,500 / ongoing. Product design support under your brand.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'trust',
+            title: 'What we design',
+            description: 'Products that need to be both visually strong and structurally clear.',
+            variant: 'trust',
+            columns: '4',
+            items: [
+              { title: 'Websites, portals, and B2B systems' },
+              { title: 'Mobile apps and dashboards' },
+              { title: 'Redesign and UX/UI improvement' },
+              { title: 'From structure to dev handoff' },
+            ],
+          },
+          {
+            __component: 'page.faq',
+            sectionId: 'faq',
+            title: 'Frequently asked questions',
+            items: [
+              { question: 'What kind of projects do you work on?', answer: 'We design websites, corporate portals, B2B platforms, client systems, dashboards, and mobile apps — both greenfield and redesign.' },
+              { question: 'What will I get after submitting a brief?', answer: 'Within 24–48 hours you receive a recommended work format, timeline estimate, and starting price.' },
+              { question: 'Can we work without calls?', answer: 'Yes. We work async-first. Most communication happens in writing.' },
+              { question: 'Do you support white-label?', answer: 'Yes. Agencies and integrators can work with us under their own brand.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'final-cta',
+            title: 'Need a website, digital system, or mobile app before development begins?',
+            description: 'Tell us about your project and we will prepare a structured proposal with format, timing, and budget direction.',
+            buttonLabel: 'Get Proposal',
+            buttonHref: '/get-proposal',
+          },
+        ],
+      },
+      ar: {
+        title: 'الرئيسية',
+        slug: 'home',
+        template: 'home',
+        seo: {
+          metaTitle: 'Atelier Meridian — نصمم المواقع والأنظمة الرقمية وتطبيقات الجوال قبل بدء التطوير',
+          metaDescription: 'تصميم UX/UI متميز للمواقع والأنظمة الرقمية وبوابات العملاء ولوحات التحكم وتطبيقات الجوال.',
+        },
+        blocks: [
+          {
+            __component: 'page.hero',
+            sectionId: 'hero',
+            eyebrow: 'استوديو UX/UI',
+            title: 'نصمم المواقع والأنظمة الرقمية وتطبيقات الجوال قبل أن تبدأ مرحلة التطوير',
+            description:
+              'يساعد Atelier Meridian المؤسسين وفرق B2B والوكالات وشركاء التنفيذ على تحويل الفكرة الأولية أو المتطلبات المعقدة إلى هيكل منتج واضح وواجهات متميزة وخطوة تالية يمكن البناء عليها بثقة.',
+            primaryCtaLabel: 'اطلب عرضاً',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'اطلع على الأسعار',
+            secondaryCtaHref: '/pricing',
+            tags: [
+              { label: 'المواقع' },
+              { label: 'الأنظمة الرقمية' },
+              { label: 'بوابات العملاء' },
+              { label: 'لوحات التحكم' },
+              { label: 'تطبيقات الجوال' },
+              { label: 'إعادة التصميم' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'value',
+            title: 'للمشاريع التي تحتاج إلى أكثر من تصميم جميل — تحتاج إلى وضوح واتفاق واستعداد للتنفيذ',
+            description: 'نعمل على المواقع والأنظمة الرقمية والبوابات ولوحات التحكم وتطبيقات الجوال.',
+            variant: 'outcomes',
+            columns: '3',
+            items: [
+              { title: 'Raise — جاهزية للمستثمر', description: 'نموذج أو مفهوم يشرح الفكرة للمستثمرين وأصحاب القرار بوضوح.' },
+              { title: 'Win — دعم العروض والبيع', description: 'مواد منتج وواجهة تجعل الحلول المعقدة أسهل في الشرح والشراء.' },
+              { title: 'Build — جاهزية للتطوير', description: 'حزمة تصميم يمكن لفريق التطوير البناء عليها بدون افتراضات كثيرة.' },
+            ],
+          },
+          {
+            __component: 'page.video-section',
+            sectionId: 'walkthrough',
+            eyebrow: 'جولة سريعة',
+            title: 'شاهد كيف ننتقل من الملخص والهيكل إلى النموذج التفاعلي ومواد التسليم',
+            description: 'جولة قصيرة توضّح كيف تتحول المهمة إلى هيكل منتج ومواد عمل ونموذج تفاعلي قابل للمراجعة.',
+            highlights: [
+              { text: 'كيف نحلل المهمة الواردة' },
+              { text: 'كيف تتشكل البنية ومسارات المستخدم' },
+              { text: 'كيف يبدو النموذج التفاعلي' },
+              { text: 'كيف تُستخدم النتيجة للعرض أو للتطوير' },
+            ],
+            videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            note: 'يمكن استبدال الفيديو لاحقاً بجولة المنتج الفعلية.',
+            primaryCtaLabel: 'اطلب عرضاً',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'اطلع على الأسعار',
+            secondaryCtaHref: '/pricing',
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'deliverables',
+            title: 'ما الذي تحصل عليه في المرحلة الأولى',
+            description: 'أساس واضح للمنتج قبل بدء التصميم البصري أو التطوير.',
+            variant: 'deliverables',
+            columns: '4',
+            items: [
+              { title: 'إطار المشروع', description: 'الأهداف والسياق وحدود النطاق في مكان واحد.' },
+              { title: 'خريطة الأدوار والصلاحيات', description: 'من يرى ماذا ولماذا قبل تصميم الشاشات.' },
+              { title: 'المسارات الأساسية', description: 'المسارات الرئيسية للمستخدمين بشكل واضح.' },
+              { title: 'مصفوفة الشاشات', description: 'الشاشات الأساسية حسب الدور والحالة.' },
+              { title: 'الاتجاه البصري', description: 'الأسلوب والمراجع والهوية البصرية بشكل مبكر.' },
+              { title: 'نموذج تفاعلي', description: 'نموذج متميز للعروض والتحقق.' },
+              { title: 'أساس نظام المكونات', description: 'قاعدة قابلة للتوسع للواجهة.' },
+              { title: 'ملخص للتسليم', description: 'كل ما يحتاجه فريق التطوير للانتقال إلى المرحلة التالية.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'why',
+            title: 'لماذا Atelier Meridian',
+            description: 'تصميم قائم على منطق المنتج للمواقع والأنظمة الرقمية وتطبيقات الجوال.',
+            variant: 'pillars',
+            columns: '4',
+            items: [
+              { title: 'قيادة بخبرة عالية', description: 'كل مشروع يقوده مصمم أو مهندس منتج خبير.' },
+              { title: 'Workflow مدعوم بالذكاء الاصطناعي', description: 'نؤتمت المهام الروتينية لنركز على القرارات الجوهرية والجودة.' },
+              { title: 'سبرنتات واضحة', description: 'نطاق واضح وجداول زمنية واقعية ونتائج قابلة للتوقع.' },
+              { title: 'تسليم بوتيكي', description: 'بدون تعقيد الوكالات الكبير — تتعامل مباشرة مع من يصنعون العمل.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'audience',
+            title: 'لمن هذا مناسب',
+            description: 'للمؤسسين والوكالات وشركاء التنفيذ وفرق B2B.',
+            variant: 'audience',
+            columns: '3',
+            items: [
+              { title: 'المؤسسون وفرق الشركات الناشئة', description: 'بحاجة إلى موقع أو صفحة هبوط أو تطبيق جوال جاهز للعرض على المستثمرين والانطلاق.' },
+              { title: 'الوكالات وشركاء التنفيذ', description: 'بحاجة إلى طاقة تصميم white-label للمواقع أو البوابات أو الأنظمة.' },
+              { title: 'فرق B2B وفرق المؤسسات', description: 'بحاجة إلى بوابة أو لوحة تحكم أو نظام داخلي بمنطق واضح وهيكل قائم على الأدوار.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'concepts',
+            title: 'اطلع على اتجاهات المفاهيم النموذجية',
+            description: 'أمثلة لمنصات B2B وتطبيقات الجوال وبوابات العملاء والمواقع التسويقية المتميزة.',
+            buttonLabel: 'عرض المفاهيم',
+            buttonHref: '/concepts',
+          },
+          {
+            __component: 'page.steps',
+            sectionId: 'method',
+            eyebrow: 'المنهجية',
+            title: 'كيف نعمل',
+            description: 'منهجية غير متزامنة أولاً. ضجيج أقل، وضوح أكبر، وقرارات أسرع.',
+            variant: 'method',
+            items: [
+              { number: '٠١', title: 'Scope', description: 'نحدد حدود المشروع والأدوار والسيناريوهات الأساسية.' },
+              { number: '٠٢', title: 'Frame', description: 'نوضح منطق المنتج والأهداف ومعايير النجاح.' },
+              { number: '٠٣', title: 'Architect', description: 'نصمم الأدوار والتدفقات وهيكل الشاشات قبل الشكل البصري.' },
+              { number: '٠٤', title: 'Design', description: 'ننشئ واجهات متميزة ونموذجاً تفاعلياً قابلاً للنقر.' },
+              { number: '٠٥', title: 'Deliver', description: 'نسلم حزمة يمكن لفريق التطوير التحرك بها مباشرة.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'pricing',
+            title: 'طرق العمل معاً',
+            description: 'اختر الصيغة المناسبة أو ابدأ بملخص المشروع.',
+            variant: 'pricing',
+            columns: '3',
+            items: [
+              { title: 'Product Framing Sprint', description: 'من $5,400 / خلال 2–3 أسابيع. إطار المنتج والأدوار والتدفقات الأساسية ومصفوفة الشاشات.' },
+              { title: 'Build-Ready Prototype', description: 'من $6,900 / خلال 4–5 أسابيع. من الفكرة إلى النموذج التفاعلي وحزمة التسليم.' },
+              { title: 'White-Label Partner Desk', description: 'من $6,500 / مستمر. دعم تصميم منتج تحت علامتك التجارية.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'trust',
+            title: 'ما الذي نصممه',
+            description: 'منتجات تحتاج أن تكون قوية بصرياً وواضحة بنيوياً في الوقت نفسه.',
+            variant: 'trust',
+            columns: '4',
+            items: [
+              { title: 'المواقع والبوابات وأنظمة B2B' },
+              { title: 'تطبيقات الجوال ولوحات التحكم' },
+              { title: 'إعادة التصميم وتحسين UX/UI' },
+              { title: 'من الهيكلة إلى التسليم للتطوير' },
+            ],
+          },
+          {
+            __component: 'page.faq',
+            sectionId: 'faq',
+            title: 'الأسئلة الشائعة',
+            items: [
+              { question: 'ما نوع المشاريع التي تعملون عليها؟', answer: 'نصمم المواقع والبوابات المؤسسية ومنصات B2B وأنظمة العملاء ولوحات التحكم وتطبيقات الجوال — سواء كانت مشاريع جديدة أو إعادة تصميم.' },
+              { question: 'ماذا سأحصل عليه بعد إرسال الملخص؟', answer: 'خلال 24–48 ساعة ستحصل على صيغة عمل مقترحة وتقدير للجدول الزمني والسعر المبدئي.' },
+              { question: 'هل يمكن العمل بدون مكالمات؟', answer: 'نعم. نعمل بمنهجية غير متزامنة أولاً، ومعظم التواصل يتم كتابياً.' },
+              { question: 'هل تدعمون white-label؟', answer: 'نعم. يمكن للوكالات وشركاء التنفيذ العمل معنا تحت علامتهم الخاصة.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'final-cta',
+            title: 'هل تحتاج إلى موقع أو نظام رقمي أو تطبيق جوال قبل بدء التطوير؟',
+            description: 'أرسل لنا ملخص المشروع وسنعد لك عرضاً منظماً يشمل الصيغة والمدة والتكلفة التقديرية.',
+            buttonLabel: 'اطلب عرضاً',
+            buttonHref: '/get-proposal',
+          },
+        ],
+      },
+    },
+    solutions: {
+      ru: {
+        title: 'Решения',
+        slug: 'solutions',
+        template: 'solutions',
+        seo: {
+          metaTitle: 'Решения — Дизайн сайтов, систем и приложений — Atelier Meridian',
+          metaDescription: 'Дизайн сайтов, B2B‑систем, клиентских порталов, dashboards и мобильных приложений. UX/UI‑студия с продуктовым подходом.',
+        },
+        blocks: [
+          {
+            __component: 'page.hero',
+            sectionId: 'hero',
+            eyebrow: 'UX/UI Design Solutions',
+            title: 'Решения для сайтов, digital‑систем и мобильных приложений',
+            description: 'Atelier Meridian помогает founders, B2B‑командам, агентствам и integrators превращать идею, сырой workflow или сложную цифровую задачу в понятную структуру, сильный интерфейс и материалы для следующего этапа.',
+            primaryCtaLabel: 'Получить предложение',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'Посмотреть цены',
+            secondaryCtaHref: '/pricing',
+            tags: [
+              { label: 'Сайты' },
+              { label: 'Корпоративные сайты' },
+              { label: 'Digital‑системы' },
+              { label: 'B2B‑платформы' },
+              { label: 'Клиентские порталы' },
+              { label: 'Мобильные приложения' },
+            ],
+          },
+          {
+            __component: 'page.steps',
+            sectionId: 'positioning',
+            eyebrow: 'Подход',
+            title: 'Не просто дизайн, а решение под тип задачи',
+            description: 'Работаем не как студия наборов экранов, а как boutique‑партнёр по продуктовой структуре и интерфейсам.',
+            variant: 'process',
+            items: [
+              { number: '01', title: 'Сначала структура', description: 'Прояснение логики продукта до визуального дизайна.' },
+              { number: '02', title: 'Потом интерфейс', description: 'Экраны и prototype на основе понятной архитектуры.' },
+              { number: '03', title: 'Затем следующий шаг', description: 'Материалы для презентации, согласования или разработки.' },
+            ],
+          },
+          {
+            __component: 'page.video-section',
+            sectionId: 'walkthrough',
+            eyebrow: 'Walkthrough',
+            title: 'Короткий walkthrough того, как мы превращаем входящую задачу в структуру продукта, рабочие материалы и prototype',
+            description: 'Показываем, как структурируется сложный продукт, как выстраиваются пользовательские сценарии и как результат передаётся в разработку.',
+            highlights: [
+              { text: 'Как структурируется сложный продукт' },
+              { text: 'Как выстраиваются пользовательские сценарии' },
+              { text: 'Какие материалы готовим для клиента' },
+              { text: 'Как выглядит готовый prototype' },
+            ],
+            videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            primaryCtaLabel: 'Получить предложение',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'Посмотреть цены',
+            secondaryCtaHref: '/pricing',
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'solutions-grid',
+            title: 'Типы задач',
+            description: 'Основные категории задач, с которыми мы работаем.',
+            variant: 'solutions-grid',
+            columns: '3',
+            items: [
+              { title: 'Дизайн сайтов и корпоративных сайтов', description: 'Для новых web‑проектов, брендов и компаний, которым нужен сильный сайт с понятной структурой.' },
+              { title: 'Редизайн сайта и UX/UI‑улучшение', description: 'Когда сайт уже есть, но его нужно упростить, усилить визуально или перестроить по логике.' },
+              { title: 'Digital‑системы и B2B‑платформы', description: 'Для сложных интерфейсов, workflows, dashboards и платформ, где важны роли и сценарии.' },
+              { title: 'Клиентские порталы и внутренние интерфейсы', description: 'Для service portals и внутренних tools, где нужна ясная навигация и удобство.' },
+              { title: 'Мобильные приложения', description: 'Для mobile apps, где важны platform fit, сценарии и сильная interface‑подача.' },
+              { title: 'Presale, prototype и white-label', description: 'Для агентств и integrators, которым нужно быстро упаковать решение для клиента.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'artifacts',
+            title: 'Артефакты, которые получает клиент',
+            description: 'Материалы, которые помогают согласовать и передать продукт дальше.',
+            variant: 'artifacts',
+            columns: '3',
+            items: [
+              { title: 'Структура проекта', description: 'Фиксирует цели, ограничения и приоритеты.' },
+              { title: 'Пользовательские сценарии', description: 'Показывает критичные сценарии и точки перехода.' },
+              { title: 'Экранная карта продукта', description: 'Собирает логику экранов в единую систему.' },
+              { title: 'Интерактивный прототип', description: 'Даёт visual preview будущего продукта.' },
+              { title: 'Базовая система компонентов', description: 'Задаёт основу интерфейсной системы.' },
+              { title: 'Материалы для handoff', description: 'Помогают перейти к следующему этапу разработки.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'audience',
+            title: 'Кому подходит этот подход',
+            description: 'Для founders, B2B‑команд, агентств и integrators.',
+            variant: 'audience',
+            columns: '2',
+            items: [
+              { title: 'Founders и product‑команды', description: 'Нужно структурировать новую идею, MVP, сайт или mobile app до старта дизайна и разработки.' },
+              { title: 'Агентства и integrators', description: 'Нужен white‑label партнёр по product/UX/UI, который быстро упакует сложное решение.' },
+              { title: 'B2B и enterprise‑команды', description: 'Нужно превратить сложный workflow в понятный портал, dashboard или систему.' },
+              { title: 'Команды redesign‑проектов', description: 'Нужно пересобрать UX, структуру и визуальную подачу существующего продукта.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'why',
+            title: 'Почему выбирают Atelier Meridian',
+            description: 'Не просто визуал, а ясность до начала разработки.',
+            variant: 'pillars',
+            columns: '4',
+            items: [
+              { title: 'Ясность до начала разработки', description: 'Структурируем продукт так, чтобы его было легко согласовать и передать в разработку.' },
+              { title: 'Экспертный senior‑подход', description: 'Работаете напрямую с senior product designer.' },
+              { title: 'Структурированные спринты', description: 'Фиксированный scope, ясные сроки, предсказуемый результат.' },
+              { title: 'Premium без overhead', description: 'Качество бутиковой студии без лишних процессов и встреч.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'connected-cta',
+            title: 'Не уверены, какое решение подходит именно вам?',
+            description: 'Опишите задачу — мы предложим подходящий формат работы, ориентир по срокам и следующий шаг.',
+            buttonLabel: 'Получить предложение',
+            buttonHref: '/get-proposal',
+            secondaryButtonLabel: 'Посмотреть цены',
+            secondaryButtonHref: '/pricing'
+          },
+          {
+            __component: 'page.faq',
+            sectionId: 'faq',
+            title: 'Частые вопросы',
+            items: [
+              { question: 'С чего лучше начать: с brief или с материалов?', answer: 'Если есть материалы — приложите их сразу. Если проект ещё не оформлен, заполните короткий brief.' },
+              { question: 'Подходит ли это для сайта, digital‑системы и mobile app?', answer: 'Да. Это основные типы задач, с которыми мы работаем.' },
+              { question: 'Можно ли прийти только с идеей?', answer: 'Да. Мы помогаем прояснить scope, роли и сценарии ещё до начала визуальной работы.' },
+              { question: 'Работаете ли вы white‑label?', answer: 'Да. Мы работаем с агентствами и integrators как внешний product/UX/UI‑партнёр.' },
+            ],
+          },
+        ],
+      },
+      en: {
+        title: 'Solutions',
+        slug: 'solutions',
+        template: 'solutions',
+        seo: {
+          metaTitle: 'Solutions — Website, Digital System & Mobile App Design — Atelier Meridian',
+          metaDescription: 'Premium UX/UI design for websites, B2B systems, client portals, dashboards, and mobile apps.',
+        },
+        blocks: [
+          {
+            __component: 'page.hero',
+            sectionId: 'hero',
+            eyebrow: 'UX/UI Design Solutions',
+            title: 'Solutions for websites, digital systems, and mobile apps',
+            description: 'Atelier Meridian helps founders, B2B teams, agencies, and integrators turn rough ideas, workflows, and product requirements into clear structure, strong interfaces, and materials for the next stage.',
+            primaryCtaLabel: 'Get Proposal',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'View Pricing',
+            secondaryCtaHref: '/pricing',
+            tags: [
+              { label: 'Websites' },
+              { label: 'Corporate Sites' },
+              { label: 'Digital Systems' },
+              { label: 'B2B Platforms' },
+              { label: 'Client Portals' },
+              { label: 'Mobile Apps' },
+            ],
+          },
+          {
+            __component: 'page.steps',
+            sectionId: 'positioning',
+            eyebrow: 'Approach',
+            title: 'Not just design — a solution tailored to the type of task',
+            description: 'We do not work like a screen factory. We work as a boutique partner for product structure and interfaces.',
+            variant: 'process',
+            items: [
+              { number: '01', title: 'First, structure', description: 'Clarify the product logic before visual design.' },
+              { number: '02', title: 'Then, interface', description: 'Screens and prototype based on a clear architecture.' },
+              { number: '03', title: 'Then, a confident next step', description: 'Materials for pitch, alignment, or development.' },
+            ],
+          },
+          {
+            __component: 'page.video-section',
+            sectionId: 'walkthrough',
+            eyebrow: 'Walkthrough',
+            title: 'A short walkthrough of how we turn an incoming task into product structure, working materials, and a prototype',
+            description: 'See how a complex product is structured, how user scenarios are shaped, and how the result is handed off to development.',
+            highlights: [
+              { text: 'How we structure a complex product' },
+              { text: 'How user scenarios are built' },
+              { text: 'What materials the client receives' },
+              { text: 'What the final prototype looks like' },
+            ],
+            videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            primaryCtaLabel: 'Get Proposal',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'View Pricing',
+            secondaryCtaHref: '/pricing',
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'solutions-grid',
+            title: 'Task types',
+            description: 'The main categories of work we cover.',
+            variant: 'solutions-grid',
+            columns: '3',
+            items: [
+              { title: 'Website and corporate site design', description: 'For new web projects, brands, and companies that need a stronger website structure and presentation.' },
+              { title: 'Website redesign and UX/UI improvement', description: 'When a website already exists but needs more clarity, stronger UX, or a better visual layer.' },
+              { title: 'Digital systems and B2B platforms', description: 'For complex interfaces, dashboards, and workflows where roles and structure matter.' },
+              { title: 'Client portals and internal tools', description: 'For account areas, service portals, and operational tools that need clearer navigation.' },
+              { title: 'Mobile apps', description: 'For mobile products where platform fit, flows, and interface quality matter.' },
+              { title: 'Presale, prototype, and white-label support', description: 'For teams that need a strong concept or prototype for a client or next-stage discussion.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'artifacts',
+            title: 'Artifacts the client receives',
+            description: 'Materials that help align the product internally and move into delivery.',
+            variant: 'artifacts',
+            columns: '3',
+            items: [
+              { title: 'Project structure', description: 'Captures goals, limitations, and priorities.' },
+              { title: 'User scenarios', description: 'Shows the most critical user paths and transitions.' },
+              { title: 'Product screen map', description: 'Turns screen logic into a coherent system.' },
+              { title: 'Interactive prototype', description: 'Provides a strong visual preview of the future product.' },
+              { title: 'Component baseline', description: 'Creates the foundation of the interface system.' },
+              { title: 'Handoff materials', description: 'Support the move to the next stage of development.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'audience',
+            title: 'Who this approach fits',
+            description: 'For founders, B2B teams, agencies, and integrators.',
+            variant: 'audience',
+            columns: '2',
+            items: [
+              { title: 'Founders and product teams', description: 'Need to structure a new idea, MVP, website, or app before design and development begin.' },
+              { title: 'Agencies and integrators', description: 'Need a reliable white-label partner for product, UX, and UI work.' },
+              { title: 'B2B and enterprise teams', description: 'Need to turn a complex workflow into a clear portal, dashboard, or internal system.' },
+              { title: 'Redesign teams', description: 'Need to rebuild UX, information structure, and visual presentation.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'why',
+            title: 'Why teams choose Atelier Meridian',
+            description: 'Not just visuals — clarity before development begins.',
+            variant: 'pillars',
+            columns: '4',
+            items: [
+              { title: 'Clarity before development', description: 'We structure the product so it is easier to align, pitch, and build.' },
+              { title: 'Senior-level ownership', description: 'You work directly with a senior product designer.' },
+              { title: 'Structured sprints', description: 'Clear scope, timelines, and predictable delivery.' },
+              { title: 'Premium without overhead', description: 'Boutique quality without unnecessary process or meetings.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'connected-cta',
+            title: 'Not sure which solution fits your project?',
+            description: 'Tell us about the task and we will recommend the most suitable format, timing, and next step.',
+            buttonLabel: 'Get Proposal',
+            buttonHref: '/get-proposal',
+            secondaryButtonLabel: 'View Pricing',
+            secondaryButtonHref: '/pricing'
+          },
+          {
+            __component: 'page.faq',
+            sectionId: 'faq',
+            title: 'Frequently asked questions',
+            items: [
+              { question: 'Where is it better to start: with a brief or with materials?', answer: 'If you already have PRD, a deck, or notes — attach them. If not, fill in a short brief and we will help structure the task.' },
+              { question: 'Does this work for websites, digital systems, and mobile apps?', answer: 'Yes. These are the main types of work we focus on.' },
+              { question: 'Can I come with just an idea?', answer: 'Yes. Many clients come at that stage, and we help clarify scope, roles, and scenarios before visual work begins.' },
+              { question: 'Do you work white-label?', answer: 'Yes. We support agencies and integrators as an external product/UX/UI partner.' },
+            ],
+          },
+        ],
+      },
+      ar: {
+        title: 'الحلول',
+        slug: 'solutions',
+        template: 'solutions',
+        seo: {
+          metaTitle: 'الحلول — تصميم المواقع والأنظمة الرقمية وتطبيقات الجوال — Atelier Meridian',
+          metaDescription: 'تصميم UX/UI متميز للمواقع ومنصات B2B وبوابات العملاء ولوحات التحكم وتطبيقات الجوال.',
+        },
+        blocks: [
+          {
+            __component: 'page.hero',
+            sectionId: 'hero',
+            eyebrow: 'حلول UX/UI',
+            title: 'حلول للمواقع والأنظمة الرقمية وتطبيقات الجوال',
+            description: 'يساعد Atelier Meridian المؤسسين وفرق B2B والوكالات وشركاء التنفيذ على تحويل الأفكار الأولية والتدفقات المعقدة ومتطلبات المنتج إلى هيكل واضح وواجهات قوية ومواد للمرحلة التالية.',
+            primaryCtaLabel: 'اطلب عرضاً',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'اطلع على الأسعار',
+            secondaryCtaHref: '/pricing',
+            tags: [
+              { label: 'المواقع' },
+              { label: 'مواقع الشركات' },
+              { label: 'الأنظمة الرقمية' },
+              { label: 'منصات B2B' },
+              { label: 'بوابات العملاء' },
+              { label: 'تطبيقات الجوال' },
+            ],
+          },
+          {
+            __component: 'page.steps',
+            sectionId: 'positioning',
+            eyebrow: 'النهج',
+            title: 'ليس مجرد تصميم، بل حل يناسب نوع المهمة',
+            description: 'لا نعمل كمصنع للشاشات، بل كشريك بوتيكي في بنية المنتج والواجهات.',
+            variant: 'process',
+            items: [
+              { number: '٠١', title: 'أولاً الهيكل', description: 'توضيح منطق المنتج قبل التصميم البصري.' },
+              { number: '٠٢', title: 'ثم الواجهة', description: 'الشاشات والنموذج على أساس بنية واضحة.' },
+              { number: '٠٣', title: 'ثم الخطوة التالية', description: 'مواد للعرض أو الاتفاق أو التطوير.' },
+            ],
+          },
+          {
+            __component: 'page.video-section',
+            sectionId: 'walkthrough',
+            eyebrow: 'جولة سريعة',
+            title: 'جولة قصيرة توضح كيف نحوّل المهمة إلى هيكل منتج ومواد عمل ونموذج تفاعلي',
+            description: 'شاهد كيف نُهيكل المنتج المعقد، وكيف تتشكل مسارات المستخدم، وكيف تنتقل النتيجة إلى مرحلة التطوير.',
+            highlights: [
+              { text: 'كيف نُهيكل منتجاً معقداً' },
+              { text: 'كيف تُبنى مسارات المستخدم' },
+              { text: 'ما المواد التي يحصل عليها العميل' },
+              { text: 'كيف يبدو النموذج النهائي' },
+            ],
+            videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            primaryCtaLabel: 'اطلب عرضاً',
+            primaryCtaHref: '/get-proposal',
+            secondaryCtaLabel: 'اطلع على الأسعار',
+            secondaryCtaHref: '/pricing',
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'solutions-grid',
+            title: 'أنواع المهام',
+            description: 'الفئات الرئيسية للمشكلات التي نعمل عليها.',
+            variant: 'solutions-grid',
+            columns: '3',
+            items: [
+              { title: 'تصميم المواقع ومواقع الشركات', description: 'للمشاريع الجديدة والعلامات التجارية والشركات التي تحتاج إلى موقع أقوى وهيكل أوضح.' },
+              { title: 'إعادة تصميم الموقع وتحسين UX/UI', description: 'عندما يكون الموقع موجوداً لكنه يحتاج إلى وضوح وتجربة أفضل وطبقة بصرية أقوى.' },
+              { title: 'الأنظمة الرقمية ومنصات B2B', description: 'للواجهات المعقدة ولوحات التحكم وسير العمل حيث تهم الأدوار والبنية.' },
+              { title: 'بوابات العملاء والأدوات الداخلية', description: 'للبوابات ولوحات الحساب والأدوات التشغيلية التي تحتاج إلى تنقّل أوضح.' },
+              { title: 'تطبيقات الجوال', description: 'للمنتجات التي تتطلب توافقاً مع المنصة ومسارات واضحة وتجربة واجهة قوية.' },
+              { title: 'الدعم في presale والنماذج الأولية وwhite-label', description: 'للفرق التي تحتاج إلى مفهوم قوي أو نموذج أولي للعميل أو للخطوة التالية.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'artifacts',
+            title: 'الوثائق والمخرجات التي يحصل عليها العميل',
+            description: 'مواد تساعد على التوافق الداخلي والانتقال إلى التنفيذ.',
+            variant: 'artifacts',
+            columns: '3',
+            items: [
+              { title: 'هيكل المشروع', description: 'يوثق الأهداف والقيود والأولويات.' },
+              { title: 'سيناريوهات المستخدم', description: 'تُظهر المسارات الحرجة ونقاط الانتقال.' },
+              { title: 'خريطة شاشات المنتج', description: 'تحوّل منطق الشاشات إلى نظام مترابط.' },
+              { title: 'نموذج تفاعلي', description: 'يوفّر معاينة قوية للمنتج المستقبلي.' },
+              { title: 'أساس المكوّنات', description: 'يبني قاعدة النظام الواجهي.' },
+              { title: 'مواد التسليم', description: 'تدعم الانتقال إلى المرحلة التالية من التطوير.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'audience',
+            title: 'لمن يناسب هذا النهج',
+            description: 'للمؤسسين وفرق B2B والوكالات وشركاء التنفيذ.',
+            variant: 'audience',
+            columns: '2',
+            items: [
+              { title: 'المؤسسون وفرق المنتج', description: 'بحاجة إلى هيكلة فكرة جديدة أو MVP أو موقع أو تطبيق قبل بدء التصميم والتطوير.' },
+              { title: 'الوكالات وشركاء التنفيذ', description: 'بحاجة إلى شريك white-label موثوق لأعمال المنتج وUX وUI.' },
+              { title: 'فرق B2B وفرق المؤسسات', description: 'بحاجة إلى تحويل سير عمل معقد إلى بوابة أو لوحة تحكم أو نظام داخلي واضح.' },
+              { title: 'فرق إعادة التصميم', description: 'بحاجة إلى إعادة بناء UX وبنية المعلومات والطبقة البصرية.' },
+            ],
+          },
+          {
+            __component: 'page.cards-grid',
+            sectionId: 'why',
+            title: 'لماذا تختار الفرق Atelier Meridian',
+            description: 'ليس مجرد مظهر بصري — بل وضوح قبل بدء التطوير.',
+            variant: 'pillars',
+            columns: '4',
+            items: [
+              { title: 'وضوح قبل التطوير', description: 'نُهيكل المنتج ليصبح أسهل في الاتفاق والعرض والبناء.' },
+              { title: 'ملكية بخبرة عالية', description: 'تتعامل مباشرة مع مصمم منتج خبير.' },
+              { title: 'سبرنتات منظمة', description: 'نطاق واضح وجداول زمنية ونتائج قابلة للتوقع.' },
+              { title: 'جودة Premium بدون overhead', description: 'جودة بوتيكية من دون عمليات أو اجتماعات زائدة.' },
+            ],
+          },
+          {
+            __component: 'page.cta',
+            sectionId: 'connected-cta',
+            title: 'لست متأكداً أي حل يناسب مشروعك؟',
+            description: 'صف لنا المهمة وسنقترح الصيغة الأنسب والمدة التقريبية والخطوة التالية.',
+            buttonLabel: 'اطلب عرضاً',
+            buttonHref: '/get-proposal',
+            secondaryButtonLabel: 'اطلع على الأسعار',
+            secondaryButtonHref: '/pricing'
+          },
+          {
+            __component: 'page.faq',
+            sectionId: 'faq',
+            title: 'الأسئلة الشائعة',
+            items: [
+              { question: 'من أين أبدأ: من الملخص أم من المواد؟', answer: 'إذا كانت لديك مواد جاهزة فأرفقها. وإذا لم يكن المشروع منظماً بعد، املأ brief قصيراً وسنساعدك في هيكلة المهمة.' },
+              { question: 'هل يناسب هذا المواقع والأنظمة الرقمية وتطبيقات الجوال؟', answer: 'نعم. هذه هي الأنواع الرئيسية للمشاريع التي نعمل عليها.' },
+              { question: 'هل يمكنني القدوم بفكرة فقط؟', answer: 'نعم. كثير من العملاء يأتون بهذه المرحلة ونحن نساعد في توضيح النطاق والأدوار والسيناريوهات قبل العمل البصري.' },
+              { question: 'هل تعملون بنظام white-label؟', answer: 'نعم. ندعم الوكالات وشركاء التنفيذ كشريك خارجي للمنتج وUX/UI.' },
+            ],
+          },
+        ],
+      },
+    },
+  },
+} as const

@@ -89,6 +89,24 @@ export interface CardItem {
   buttonHref?: string
 }
 
+export type CardsGridVariant =
+  | 'default'
+  | 'outcomes'
+  | 'deliverables'
+  | 'pillars'
+  | 'audience'
+  | 'concepts'
+  | 'pricing'
+  | 'solutions-grid'
+  | 'artifacts'
+  | 'situations'
+  | 'efficiency'
+  | 'projects'
+  | 'packages'
+  | 'conversion-paths'
+  | 'decision-support'
+  | 'trust'
+
 export interface CardsGridBlock {
   __component: 'page.cards-grid'
   id: number
@@ -96,26 +114,15 @@ export interface CardsGridBlock {
   eyebrow?: string
   title?: string
   description?: string
-  variant?:
-    | 'default'
-    | 'outcomes'
-    | 'deliverables'
-    | 'pillars'
-    | 'audience'
-    | 'concepts'
-    | 'pricing'
-    | 'solutions-grid'
-    | 'artifacts'
-    | 'situations'
-    | 'efficiency'
-    | 'projects'
-    | 'packages'
-    | 'conversion-paths'
-    | 'decision-support'
-    | 'trust'
+  variant?: CardsGridVariant
   theme?: 'light' | 'dark' | 'muted'
   columns?: '2' | '3' | '4'
   items?: CardItem[]
+}
+
+export interface TextItem {
+  id: number
+  text: string
 }
 
 export interface VideoSectionBlock {
@@ -125,9 +132,14 @@ export interface VideoSectionBlock {
   eyebrow?: string
   title?: string
   description?: string
+  highlights?: TextItem[]
   videoUrl: string
   posterImage?: StrapiImage | null
   note?: string
+  primaryCtaLabel?: string
+  primaryCtaHref?: string
+  secondaryCtaLabel?: string
+  secondaryCtaHref?: string
 }
 
 export interface StepItem {
@@ -147,11 +159,6 @@ export interface StepsBlock {
   description?: string
   variant?: 'process' | 'proposal' | 'method' | 'checklist'
   items?: StepItem[]
-}
-
-export interface TextItem {
-  id: number
-  text: string
 }
 
 export interface StatementsStripBlock {
@@ -269,7 +276,7 @@ export interface CmsPage {
 
 export interface StrapiSingleResponse<T> {
   data: T
-  meta: Record<string, unknown>
+  meta: Record<string, never>
 }
 
 export interface PageResponse {

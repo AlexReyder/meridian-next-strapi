@@ -5,7 +5,7 @@
     "singularName": "page",
     "pluralName": "pages",
     "displayName": "Page",
-    "description": "Localized pages assembled from reusable blocks with canonical shared slugs"
+    "description": "Localized pages assembled from reusable blocks"
   },
   "options": {
     "draftAndPublish": false
@@ -46,6 +46,7 @@
         "method",
         "concepts",
         "get-proposal",
+        "landing",
         "generic"
       ],
       "default": "generic",

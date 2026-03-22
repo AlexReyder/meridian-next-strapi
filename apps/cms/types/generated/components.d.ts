@@ -642,6 +642,12 @@ export interface PageVideoSection extends Struct.ComponentSchema {
           localized: true;
         };
       }>;
+    highlights: Schema.Attribute.Component<'page.text-item', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     note: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -649,6 +655,20 @@ export interface PageVideoSection extends Struct.ComponentSchema {
         };
       }>;
     posterImage: Schema.Attribute.Media<'images'>;
+    primaryCtaHref: Schema.Attribute.String;
+    primaryCtaLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    secondaryCtaHref: Schema.Attribute.String;
+    secondaryCtaLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     sectionId: Schema.Attribute.String;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{

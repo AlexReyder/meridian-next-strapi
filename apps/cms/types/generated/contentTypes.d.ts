@@ -496,7 +496,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    description: 'Localized pages assembled from reusable blocks with canonical shared slugs';
+    description: 'Localized pages assembled from reusable blocks';
     displayName: 'Page';
     pluralName: 'pages';
     singularName: 'page';
@@ -560,6 +560,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'method',
         'concepts',
         'get-proposal',
+        'landing',
         'generic',
       ]
     > &
