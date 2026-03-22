@@ -31,7 +31,7 @@ async function fetchFromStrapi<T>(path: string, next?: RequestInit['next']): Pro
 
 export async function getGlobalSettings(locale: SiteLocale = DEFAULT_LOCALE) {
   return fetchFromStrapi<StrapiSingleResponse<GlobalSettingsResponse>>(
-    `/api/global?locale=${locale}&populate[favicon]=true&populate[menuItems]=true&populate[defaultSeo][populate][shareImage]=true`,
+    `/api/global?locale=${locale}&populate[favicon]=true&populate[menuItems]=true&populate[footerColumns][populate][items]=true&populate[footerLegalLinks]=true&populate[defaultSeo][populate][shareImage]=true`,
     {
       revalidate: 3600,
       tags: [`global:${locale}`],

@@ -27,6 +27,12 @@ export interface MenuItem {
   openInNewTab?: boolean
 }
 
+export interface FooterColumn {
+  id: number
+  title: string
+  items?: MenuItem[]
+}
+
 export interface GlobalSettingsResponse {
   id: number
   siteName: string
@@ -35,6 +41,9 @@ export interface GlobalSettingsResponse {
   favicon?: StrapiImage | null
   defaultSeo?: SeoComponent | null
   menuItems?: MenuItem[]
+  footerColumns?: FooterColumn[]
+  footerLegalLinks?: MenuItem[]
+  footerCopyright?: string
 }
 
 export interface HeroTag {

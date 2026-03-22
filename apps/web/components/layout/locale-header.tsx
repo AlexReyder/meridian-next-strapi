@@ -1,96 +1,160 @@
 'use client'
 
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Menu, X } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { LOCALE_COOKIE, type SiteLocale } from '@/lib/i18n'
-import {
-  localizeHref,
-  switchLocalePath,
-  SUPPORTED_LOCALES,
-} from '@/lib/routing'
+import { type SiteLocale } from '@/lib/i18n'
+import { localizeHref, pagePath } from '@/lib/routing'
 import type { MenuItem } from '@/types/strapi'
+import { LanguageSwitcher } from '@/components/layout/language-switcher'
 
 type LocaleHeaderProps = {
   locale: SiteLocale
   menuItems?: MenuItem[]
+  siteName?: string
+  siteTagline?: string
+  ctaLabel?: string
+  ctaHref?: string
 }
 
-const proposalLabel: Record<SiteLocale, string> = {
+const fallbackCtaLabel: Record<SiteLocale, string> = {
   ru: 'Получить предложение',
   en: 'Get proposal',
   ar: 'اطلب عرضًا',
 }
 
+const fallbackTagline = 'Product Architecture & Interface Studio'
+
 export function LocaleHeader({
   locale,
   menuItems = [],
+  siteName = 'Atelier Meridian',
+  siteTagline = fallbackTagline,
+  ctaLabel,
+  ctaHref = '/get-proposal',
 }: LocaleHeaderProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
 
-  const handleLanguageClick = (value: SiteLocale) => {
-    document.cookie = `${LOCALE_COOKIE}=${value}; path=/; max-age=31536000; samesite=lax`
-  }
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const localizedMenuItems = useMemo(
+    () =>
+      menuItems.map((item) => ({
+        ...item,
+        localizedHref: localizeHref(locale, item.href),
+      })),
+    [locale, menuItems],
+  )
+
+  const localizedCtaHref = localizeHref(locale, ctaHref)
+  const ctaText = ctaLabel || fallbackCtaLabel[locale]
+
+  const isActive = (href: string) => mounted && pathname === href
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-        <Link href={`/${locale}`} className="flex flex-col">
-          <span className="font-serif text-xl">Atelier Meridian</span>
-          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Product Architecture & Interface Studio
-          </span>
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Link href={pagePath(locale, 'home')} className="flex items-center gap-3">
+              <div className="flex flex-col gap-0.5">
+                <div className="w-[3px] h-2 bg-signature-cobalt rounded-full" />
+                <div className="w-[3px] h-1.5 bg-signature-brass rounded-full" />
+              </div>
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {menuItems.map((item) => {
-            const href = localizeHref(locale, item.href)
-            const isActive = pathname === href
+              <div className="flex flex-col">
+                <span className="font-serif text-lg font-medium tracking-tight text-foreground">
+                  {siteName}
+                </span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  {siteTagline}
+                </span>
+              </div>
+            </Link>
+          </div>
 
-            return (
+          <nav className="hidden lg:flex items-center gap-8">
+            {localizedMenuItems.map((item) => (
               <Link
                 key={`${item.id}-${item.href}`}
-                href={href}
+                href={item.localizedHref}
                 target={item.openInNewTab ? '_blank' : undefined}
                 rel={item.openInNewTab ? 'noreferrer' : undefined}
-                className={
-                  isActive
-                    ? 'text-foreground'
-                    : 'text-muted-foreground transition-colors hover:text-foreground'
-                }
-              >
-                {item.label}
-              </Link>
-            )
-          })}
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-2 rounded-full border border-border/60 px-2 py-1 sm:flex">
-            {SUPPORTED_LOCALES.map((targetLocale) => (
-              <Link
-                key={targetLocale}
-                href={switchLocalePath(targetLocale, pathname)}
-                onClick={() => handleLanguageClick(targetLocale)}
-                className={`rounded-full px-2 py-1 text-xs uppercase tracking-[0.2em] ${
-                  targetLocale === locale
-                    ? 'bg-foreground text-background'
+                className={`text-sm transition-colors duration-200 ${
+                  isActive(item.localizedHref)
+                    ? 'text-foreground font-medium'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
-                {targetLocale}
+                {item.label}
               </Link>
             ))}
-          </div>
+          </nav>
 
-          <Button asChild className="hidden sm:inline-flex">
-            <Link href={localizeHref(locale, '/get-proposal')}>
-              {proposalLabel[locale]}
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher locale={locale} variant="header" />
+
+            <Link
+              href={localizedCtaHref}
+              className={`hidden md:inline-flex items-center justify-center text-xs uppercase tracking-wider px-5 h-8 rounded-md font-medium transition-colors ${
+                isActive(localizedCtaHref)
+                  ? 'bg-accent/20 text-foreground border border-accent/40'
+                  : 'bg-foreground text-background hover:bg-foreground/90'
+              }`}
+            >
+              {ctaText}
             </Link>
-          </Button>
+
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2 text-foreground"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </div>
+
+      {isMenuOpen && (
+        <div className="lg:hidden bg-background border-t border-border">
+          <div className="px-6 py-6 space-y-4">
+            {localizedMenuItems.map((item) => (
+              <Link
+                key={`${item.id}-${item.href}-mobile`}
+                href={item.localizedHref}
+                target={item.openInNewTab ? '_blank' : undefined}
+                rel={item.openInNewTab ? 'noreferrer' : undefined}
+                className={`block text-sm transition-colors ${
+                  isActive(item.localizedHref)
+                    ? 'text-foreground font-medium'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+
+            <div className="pt-4 border-t border-border">
+              <Link
+                href={localizedCtaHref}
+                className="flex w-full items-center justify-center bg-foreground text-background hover:bg-foreground/90 text-xs uppercase tracking-wider px-5 h-10 rounded-md font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {ctaText}
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

@@ -49,3 +49,4 @@ CMS_SEED_OVERWRITE=true
 - Seeding runs inside Strapi `bootstrap()`.
 - It is safe to keep `CMS_SEED_ON_BOOT=false` in normal development after the initial seed.
 - Once the customer sends the final translations, update the localized entries in Strapi directly.
+Хорошо, тогда давай перейдем к главной странице home и начнем работать с ней. Будем поэтапно переносить компоненты. Нам необходимо сохранить верстку и стили. Также настроить максимальное редактирование контента. Важно учитывать RTL для AR. Можно взять верстку из ar папки в отправленном мною архиве. Начнем с Hero компонента

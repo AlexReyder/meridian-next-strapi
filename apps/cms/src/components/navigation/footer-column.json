@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_navigation_footer_columns",
+  "info": {
+    "displayName": "Footer Column",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.menu-item",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

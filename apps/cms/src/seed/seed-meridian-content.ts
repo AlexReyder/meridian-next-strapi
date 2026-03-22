@@ -2,6 +2,7 @@ import type { Core } from '@strapi/strapi'
 import { MERIDIAN_SEED } from './meridian-seed-data'
 import { PHASE_E_PAGES } from './phase-e-pages-seed'
 import { PHASE_F_PAGES } from './phase-f-pages-seed'
+import { GLOBAL_FOOTER_SEED } from './global-footer-seed'
 
 type SeedLocale = keyof typeof MERIDIAN_SEED.global
 
@@ -27,7 +28,10 @@ async function upsertGlobal(strapi: Core.Strapi, locale: SeedLocale, overwrite: 
     fields: ['documentId', 'siteName', 'siteDescription', 'contactEmail'],
   } as any)
 
-  const data = MERIDIAN_SEED.global[locale]
+    const data = {
+    ...MERIDIAN_SEED.global[locale],
+    ...GLOBAL_FOOTER_SEED[locale],
+  }
 
   if (!existing) {
     await service.create({ locale, data } as any)

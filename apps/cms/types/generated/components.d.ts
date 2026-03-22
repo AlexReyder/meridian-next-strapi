@@ -1,5 +1,28 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface NavigationFooterColumn extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_footer_columns';
+  info: {
+    description: 'Column of footer links';
+    displayName: 'Footer column';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'navigation.menu-item', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface NavigationMenuItem extends Struct.ComponentSchema {
   collectionName: 'components_navigation_menu_items';
   info: {
@@ -745,6 +768,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'navigation.footer-column': NavigationFooterColumn;
       'navigation.menu-item': NavigationMenuItem;
       'page.card-item': PageCardItem;
       'page.cards-grid': PageCardsGrid;

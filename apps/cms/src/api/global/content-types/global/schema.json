@@ -29,7 +29,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "siteDescription": {
       "type": "text",
@@ -63,6 +67,34 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "footerColumns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.footer-column",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "footerLegalLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.menu-item",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "footerCopyright": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true

@@ -464,6 +464,34 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
         };
       }>;
     favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    footerColumns: Schema.Attribute.Component<
+      'navigation.footer-column',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footerCopyright: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footerLegalLinks: Schema.Attribute.Component<'navigation.menu-item', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    headerCtaHref: Schema.Attribute.String;
+    headerCtaLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
     menuItems: Schema.Attribute.Component<'navigation.menu-item', true> &
@@ -482,6 +510,12 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       }>;
     siteName: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    siteTagline: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
