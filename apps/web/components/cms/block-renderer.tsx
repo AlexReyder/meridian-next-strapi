@@ -1,5 +1,6 @@
 import type { CmsBlock } from '@/types/strapi'
 import { blockKey } from '@/lib/normalize-page'
+import type { SiteLocale } from '@/lib/i18n'
 import { HeroBlockView } from '@/components/cms/blocks/hero-block'
 import { RichTextBlockView } from '@/components/cms/blocks/rich-text-block'
 import { MediaTextBlockView } from '@/components/cms/blocks/media-text-block'
@@ -13,7 +14,17 @@ import { FaqBlockView } from '@/components/cms/blocks/faq-block'
 import { CtaBlockView } from '@/components/cms/blocks/cta-block'
 import { FormSectionBlockView } from '@/components/cms/blocks/form-section-block'
 
-export function BlockRenderer({ blocks = [], locale }: { blocks?: CmsBlock[]; locale: string }) {
+export function BlockRenderer({
+  blocks = [],
+  locale,
+  pageTitle,
+  pageSlug,
+}: {
+  blocks?: CmsBlock[]
+  locale: SiteLocale
+  pageTitle?: string
+  pageSlug?: string
+}) {
   return (
     <>
       {blocks.map((block, index) => {
@@ -41,7 +52,15 @@ export function BlockRenderer({ blocks = [], locale }: { blocks?: CmsBlock[]; lo
           case 'page.cta':
             return <CtaBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.form-section':
-            return <FormSectionBlockView key={blockKey(block, index)} block={block} locale={locale} />
+            return (
+              <FormSectionBlockView
+                key={blockKey(block, index)}
+                block={block}
+                locale={locale}
+                pageTitle={pageTitle}
+                pageSlug={pageSlug}
+              />
+            )
           default:
             return null
         }

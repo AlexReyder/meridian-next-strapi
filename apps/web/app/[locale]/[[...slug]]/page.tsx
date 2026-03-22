@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-
 import { BlockRenderer } from '@/components/cms/block-renderer'
 import { isSupportedLocale, type SiteLocale } from '@/lib/i18n'
 import { localeAlternates, resolveCanonicalSlug } from '@/lib/routing'
@@ -68,5 +67,12 @@ export default async function CmsPageRoute({
     notFound()
   }
 
-  return <BlockRenderer blocks={page.blocks} locale={locale} />
+  return (
+    <BlockRenderer
+      blocks={page.blocks}
+      locale={locale as SiteLocale}
+      pageTitle={page.title}
+      pageSlug={page.slug}
+    />
+  )
 }
