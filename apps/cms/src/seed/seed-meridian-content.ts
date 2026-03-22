@@ -1,158 +1,107 @@
 import type { Core } from '@strapi/strapi'
 import { MERIDIAN_SEED } from './meridian-seed-data'
+import { PHASE_E_PAGES } from './phase-e-pages-seed'
 
-const SUPPORTED_LOCALES = ['ru', 'en', 'ar'] as const
+type SeedLocale = keyof typeof MERIDIAN_SEED
+type AdditionalLocale = 'ru' | 'en' | 'ar'
 
-type SeedLocale = (typeof SUPPORTED_LOCALES)[number]
-type PageSlug = keyof typeof MERIDIAN_SEED.pages
+type DocumentServiceResult<T> =
+  | T[]
+  | { results?: T[] }
+  | { data?: T[] }
 
-type DocumentRef = {
-  documentId: string
+function firstResult<T>(value: DocumentServiceResult<T> | null | undefined): T | undefined {
+  if (!value) return undefined
+  if (Array.isArray(value)) return value[0]
+  if ('results' in value && Array.isArray(value.results)) return value.results[0]
+  if ('data' in value && Array.isArray(value.data)) return value.data[0]
+  return undefined
 }
 
-function isSeedLocale(value: string): value is SeedLocale {
-  return (SUPPORTED_LOCALES as readonly string[]).includes(value)
-}
-
-async function ensureGlobalBase(strapi: Core.Strapi, overwrite: boolean): Promise<DocumentRef> {
-  const service = strapi.documents('api::global.global')
-  const existing = await service.findFirst({
-    locale: 'ru',
-    fields: ['documentId'],
-  } as any)
-
-  if (existing?.documentId) {
-    if (overwrite) {
-      await service.update({
-        documentId: existing.documentId,
-        locale: 'ru',
-        data: MERIDIAN_SEED.global.ru,
-      } as any)
-      strapi.log.info('[seed] updated global settings for ru')
-    } else {
-      strapi.log.info('[seed] skipped global settings for ru (already exists)')
-    }
-
-    return { documentId: existing.documentId }
-  }
-
-  const created = await service.create({
-    locale: 'ru',
-    data: MERIDIAN_SEED.global.ru,
-  } as any)
-
-  strapi.log.info('[seed] created global settings for ru')
-  return { documentId: created.documentId }
-}
-
-async function upsertGlobalLocale(strapi: Core.Strapi, documentId: string, locale: SeedLocale, overwrite: boolean) {
-  if (locale === 'ru') return
-
+async function upsertGlobal(strapi: Core.Strapi, locale: SeedLocale, overwrite: boolean) {
   const service = strapi.documents('api::global.global')
   const existing = await service.findFirst({
     locale,
-    fields: ['documentId', 'siteName'],
+    fields: ['documentId', 'siteName', 'siteDescription', 'contactEmail'],
   } as any)
 
-  if (existing && !overwrite) {
+  const data = MERIDIAN_SEED.global[locale]
+
+  if (!existing) {
+    await service.create({ locale, data } as any)
+    strapi.log.info(`[seed] created global settings for ${locale}`)
+    return
+  }
+
+  if (!overwrite) {
     strapi.log.info(`[seed] skipped global settings for ${locale} (already exists)`)
     return
   }
 
-  try {
-    await service.update({
-      documentId,
-      locale,
-      data: MERIDIAN_SEED.global[locale],
-    } as any)
-    strapi.log.info(`[seed] upserted global settings for ${locale}`)
-  } catch (error) {
-    strapi.log.warn(`[seed] update fallback for global ${locale}: ${(error as Error).message}`)
-    await service.create({
-      locale,
-      data: MERIDIAN_SEED.global[locale],
-    } as any)
-    strapi.log.info(`[seed] created standalone global settings for ${locale}`)
-  }
-}
-
-async function ensurePageBase(strapi: Core.Strapi, slug: PageSlug, overwrite: boolean): Promise<DocumentRef> {
-  const service = strapi.documents('api::page.page')
-  const seed = MERIDIAN_SEED.pages[slug].ru
-
-  const existing = await service.findFirst({
-    locale: 'ru',
-    filters: {
-      slug: {
-        $eq: slug,
-      },
-    },
-    fields: ['documentId', 'slug'],
+  await service.update({
+    documentId: (existing as any).documentId,
+    locale,
+    data,
   } as any)
 
-  if (existing?.documentId) {
-    if (overwrite) {
-      await service.update({
-        documentId: existing.documentId,
-        locale: 'ru',
-        data: seed,
-      } as any)
-      strapi.log.info(`[seed] updated page ${slug} for ru`)
-    } else {
-      strapi.log.info(`[seed] skipped page ${slug} for ru (already exists)`)
-    }
-
-    return { documentId: existing.documentId }
-  }
-
-  const created = await service.create({
-    locale: 'ru',
-    data: seed,
-  } as any)
-
-  strapi.log.info(`[seed] created page ${slug} for ru`)
-  return { documentId: created.documentId }
+  strapi.log.info(`[seed] updated global settings for ${locale}`)
 }
 
-async function upsertPageLocale(
+async function upsertPage(
   strapi: Core.Strapi,
-  slug: PageSlug,
-  documentId: string,
-  locale: SeedLocale,
+  locale: string,
+  slug: string,
+  data: Record<string, unknown>,
   overwrite: boolean,
 ) {
-  if (locale === 'ru') return
-
   const service = strapi.documents('api::page.page')
-  const existing = await service.findFirst({
+  const existingMany = await service.findMany({
     locale,
-    filters: {
-      slug: {
-        $eq: slug,
-      },
-    },
+    filters: { slug: { $eq: slug } },
     fields: ['documentId', 'slug'],
+    pageSize: 1,
   } as any)
 
-  if (existing && !overwrite) {
+  const existing = firstResult(existingMany as any)
+
+  if (!existing) {
+    await service.create({ locale, data } as any)
+    strapi.log.info(`[seed] created page ${slug} for ${locale}`)
+    return
+  }
+
+  if (!overwrite) {
     strapi.log.info(`[seed] skipped page ${slug} for ${locale} (already exists)`)
     return
   }
 
-  try {
-    await service.update({
-      documentId,
-      locale,
-      data: MERIDIAN_SEED.pages[slug][locale],
-    } as any)
-    strapi.log.info(`[seed] upserted page ${slug} for ${locale}`)
-  } catch (error) {
-    strapi.log.warn(`[seed] update fallback for ${slug}/${locale}: ${(error as Error).message}`)
-    await service.create({
-      locale,
-      data: MERIDIAN_SEED.pages[slug][locale],
-    } as any)
-    strapi.log.info(`[seed] created standalone page ${slug} for ${locale}`)
+  await service.update({
+    documentId: (existing as any).documentId,
+    locale,
+    data,
+  } as any)
+
+  strapi.log.info(`[seed] updated page ${slug} for ${locale}`)
+}
+
+async function upsertHomePage(strapi: Core.Strapi, locale: SeedLocale, overwrite: boolean) {
+  const base = MERIDIAN_SEED.pages.home.ru
+  const localized = MERIDIAN_SEED.pages.home[locale]
+
+  const data = {
+    ...base,
+    ...localized,
+    blocks: localized.blocks.length > 0 ? localized.blocks : base.blocks,
+  }
+
+  await upsertPage(strapi, locale, 'home', data, overwrite)
+}
+
+async function upsertPhaseEPages(strapi: Core.Strapi, locale: AdditionalLocale, overwrite: boolean) {
+  const pagesByLocale = PHASE_E_PAGES?.[locale] ?? []
+
+  for (const page of pagesByLocale) {
+    await upsertPage(strapi, locale, page.slug, page as any, overwrite)
   }
 }
 
@@ -161,17 +110,22 @@ export async function seedMeridianContent(strapi: Core.Strapi) {
   const locales = (process.env.CMS_SEED_LOCALES || 'ru,en,ar')
     .split(',')
     .map((value) => value.trim())
-    .filter(isSeedLocale)
+    .filter(Boolean)
 
-  const globalBase = await ensureGlobalBase(strapi, overwrite)
-  for (const locale of locales) {
-    await upsertGlobalLocale(strapi, globalBase.documentId, locale, overwrite)
+  const availablePhaseELocales = PHASE_E_PAGES ? Object.keys(PHASE_E_PAGES) : []
+
+  if (!PHASE_E_PAGES) {
+    strapi.log.warn('[seed] PHASE_E_PAGES is undefined, phase E pages seeding will be skipped')
   }
 
-  for (const slug of Object.keys(MERIDIAN_SEED.pages) as PageSlug[]) {
-    const pageBase = await ensurePageBase(strapi, slug, overwrite)
-    for (const locale of locales) {
-      await upsertPageLocale(strapi, slug, pageBase.documentId, locale, overwrite)
+  for (const locale of locales) {
+    if (locale in MERIDIAN_SEED) {
+      await upsertGlobal(strapi, locale as SeedLocale, overwrite)
+      await upsertHomePage(strapi, locale as SeedLocale, overwrite)
+    }
+
+    if (availablePhaseELocales.includes(locale)) {
+      await upsertPhaseEPages(strapi, locale as AdditionalLocale, overwrite)
     }
   }
 }
