@@ -1,0 +1,13 @@
+{
+  "name": "meridian",
+  "private": true,
+  "packageManager": "pnpm@10",
+  "scripts": {
+    "dev:web": "pnpm --dir apps/web dev",
+    "dev:cms": "pnpm --dir apps/cms develop",
+    "build:web": "pnpm --dir apps/web build",
+    "build:cms": "pnpm --dir apps/cms build",
+    "start:web": "pnpm --dir apps/web start",
+    "start:cms": "pnpm --dir apps/cms start"
+  }
+}
