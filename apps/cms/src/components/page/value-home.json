@@ -1,17 +1,23 @@
 {
-  "collectionName": "components_page_value_home",
+  "collectionName": "components_page_value_homes",
   "info": {
-    "displayName": "ValueHome",
-    "description": "Home page specific section"
+    "displayName": "ValueHome"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "isEnabled": {
-      "type": "boolean",
-      "default": true
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-outcome-item"
     }
   }
 }

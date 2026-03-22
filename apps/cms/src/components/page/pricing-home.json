@@ -1,17 +1,23 @@
 {
-  "collectionName": "components_page_pricing_home",
+  "collectionName": "components_page_pricing_homes",
   "info": {
-    "displayName": "PricingHome",
-    "description": "Home page specific section"
+    "displayName": "PricingHome"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "isEnabled": {
-      "type": "boolean",
-      "default": true
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-pricing-package-item"
     }
   }
 }

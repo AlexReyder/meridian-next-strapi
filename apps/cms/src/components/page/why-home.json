@@ -1,17 +1,26 @@
 {
-  "collectionName": "components_page_why_home",
+  "collectionName": "components_page_why_homes",
   "info": {
-    "displayName": "WhyHome",
-    "description": "Home page specific section"
+    "displayName": "WhyHome"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "isEnabled": {
-      "type": "boolean",
-      "default": true
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-pillar-item"
     }
   }
 }

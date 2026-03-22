@@ -1,17 +1,26 @@
 {
-  "collectionName": "components_page_method_home",
+  "collectionName": "components_page_method_homes",
   "info": {
-    "displayName": "MethodHome",
-    "description": "Home page specific section"
+    "displayName": "MethodHome"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "isEnabled": {
-      "type": "boolean",
-      "default": true
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-method-step-item"
     }
   }
 }

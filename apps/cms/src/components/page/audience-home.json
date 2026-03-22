@@ -1,17 +1,23 @@
 {
-  "collectionName": "components_page_audience_home",
+  "collectionName": "components_page_audience_homes",
   "info": {
-    "displayName": "AudienceHome",
-    "description": "Home page specific section"
+    "displayName": "AudienceHome"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "isEnabled": {
-      "type": "boolean",
-      "default": true
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-audience-item"
     }
   }
 }

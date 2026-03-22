@@ -84,9 +84,6 @@ export default async function LocaleLayout({
           locale={locale as SiteLocale}
           contactEmail={settings.data.contactEmail}
           menuItems={settings.data.menuItems}
-          footerColumns={settings.data.footerColumns}
-          footerLegalLinks={settings.data.footerLegalLinks}
-          footerCopyright={settings.data.footerCopyright}
           siteName={settings.data.siteName}
           siteDescription={settings.data.siteDescription}
         />

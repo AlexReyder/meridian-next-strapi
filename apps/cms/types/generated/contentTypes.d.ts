@@ -517,7 +517,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    description: 'Localized pages assembled from reusable blocks';
+    description: 'Localized pages assembled from reusable and page-specific blocks';
     displayName: 'Page';
     pluralName: 'pages';
     singularName: 'page';
@@ -533,6 +533,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   attributes: {
     blocks: Schema.Attribute.DynamicZone<
       [
+        'page.hero-home',
         'page.hero',
         'page.rich-text',
         'page.media-text',
@@ -545,19 +546,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page.faq',
         'page.cta',
         'page.form-section',
-        'page.hero-home',
-        'page.value-home',
-        'page.deliverables-home',
-        'page.why-home',
-        'page.audience-home',
-        'page.concepts-home',
-        'page.method-home',
-        'page.pricing-home',
-        'page.proposal-home',
-        'page.sample-preview-home',
-        'page.trust-home',
-        'page.faq-home',
-        'page.final-cta-home',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

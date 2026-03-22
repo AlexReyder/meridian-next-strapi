@@ -1,12 +1,12 @@
+import Link from 'next/link'
+import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import type { PricingHomeBlock } from '@/types/strapi'
-import { PricingSection } from '@/components/pricing-section'
+import type { SiteLocale } from '@/lib/i18n'
 
-export function PricingHomeBlockView({
-  block,
-}: {
-  block: PricingHomeBlock
-  locale: string
-}) {
-  if (block.isEnabled === false) return null
-  return <PricingSection />
+export function PricingHomeBlockView({ block, locale }: { block: PricingHomeBlock; locale: SiteLocale }) {
+  const isRtl = locale === 'ar'
+  return (
+    <section id={block.sectionId || 'formats'} className="py-24 lg:py-32 bg-secondary/30" dir={isRtl ? 'rtl' : 'ltr'}><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="max-w-3xl mb-16"><div className="flex items-center gap-3 mb-4"><div className="flex items-center">{isRtl ? <><span className="h-[2px] w-2 bg-signature-brass rounded-full" /><span className="h-[2px] w-3 bg-signature-cobalt mr-0.5 rounded-full" /></> : <><span className="h-[2px] w-3 bg-signature-cobalt rounded-full" /><span className="h-[2px] w-2 bg-signature-brass ml-0.5 rounded-full" /></>}</div><span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{block.eyebrow}</span></div><h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl font-light leading-tight text-foreground text-balance">{block.title}</h2></div><div className="grid lg:grid-cols-3 gap-8">{block.items?.map((pkg)=><div key={pkg.id ?? pkg.name} className={`relative p-8 lg:p-10 rounded-sm border transition-all duration-300 ${pkg.featured ? 'bg-foreground text-background border-foreground' : 'bg-card border-border hover:border-foreground/20'}`}>{pkg.badge ? <div className={`absolute -top-3 ${isRtl ? 'right-8' : 'left-8'} text-[10px] uppercase tracking-[0.15em] bg-gradient-to-r from-signature-cobalt to-signature-cobalt-soft text-white px-3 py-1 rounded-sm`}>{pkg.badge}</div> : null}<div className="mb-8"><h3 className={`font-serif text-xl lg:text-2xl mb-2 ${pkg.featured ? 'text-background' : 'text-foreground'}`}>{pkg.name}</h3><p className={`text-sm leading-relaxed ${pkg.featured ? 'text-background/70' : 'text-muted-foreground'}`}>{pkg.description}</p></div><div className="mb-8"><span className={`font-serif text-3xl lg:text-4xl ${pkg.featured ? 'text-background' : 'text-foreground'}`}>{pkg.price}</span><span className={`${isRtl ? 'mr-2' : 'ml-2'} text-sm ${pkg.featured ? 'text-background/60' : 'text-muted-foreground'}`}>/ {pkg.timeline}</span></div><ul className="space-y-3 mb-10">{pkg.includes?.map((item,index)=><li key={`${item}-${index}`} className="flex items-start gap-3"><Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${pkg.featured ? 'text-signature-brass' : 'text-signature-cobalt'}`} /><span className={`text-sm ${pkg.featured ? 'text-background/80' : 'text-muted-foreground'}`}>{item}</span></li>)}</ul>{pkg.buttonHref ? <Button asChild className={`w-full text-xs uppercase tracking-wider ${pkg.featured ? 'bg-background text-foreground hover:bg-background/90' : 'bg-foreground text-background hover:bg-foreground/90'}`}><Link href={pkg.buttonHref}>{isRtl ? <ArrowLeft className="ml-2 h-4 w-4" /> : null}{pkg.buttonLabel}{!isRtl ? <ArrowRight className="ml-2 h-4 w-4" /> : null}</Link></Button> : null}</div>)}</div></div></section>
+  )
 }

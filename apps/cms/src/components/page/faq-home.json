@@ -1,17 +1,23 @@
 {
-  "collectionName": "components_page_faq_home",
+  "collectionName": "components_page_faq_homes",
   "info": {
-    "displayName": "FaqHome",
-    "description": "Home page specific section"
+    "displayName": "FaqHome"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "isEnabled": {
-      "type": "boolean",
-      "default": true
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-faq-item"
     }
   }
 }

@@ -1,17 +1,23 @@
 {
-  "collectionName": "components_page_deliverables_home",
+  "collectionName": "components_page_deliverables_homes",
   "info": {
-    "displayName": "DeliverablesHome",
-    "description": "Home page specific section"
+    "displayName": "DeliverablesHome"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "isEnabled": {
-      "type": "boolean",
-      "default": true
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-deliverable-item"
     }
   }
 }

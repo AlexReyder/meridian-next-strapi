@@ -1,17 +1,29 @@
 {
-  "collectionName": "components_page_sample_preview_home",
+  "collectionName": "components_page_sample_preview_homes",
   "info": {
-    "displayName": "SamplePreviewHome",
-    "description": "Home page specific section"
+    "displayName": "SamplePreviewHome"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "isEnabled": {
-      "type": "boolean",
-      "default": true
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-artifact-item"
+    },
+    "note": {
+      "type": "text"
     }
   }
 }
