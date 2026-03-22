@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "proposal_submissions",
+  "info": {
+    "singularName": "proposal-submission",
+    "pluralName": "proposal-submissions",
+    "displayName": "Proposal Submission",
+    "description": "Website proposal inquiries"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "locale": { "type": "string", "required": true },
+    "pageSlug": { "type": "string", "required": true },
+    "pageTitle": { "type": "string" },
+    "name": { "type": "string", "required": true },
+    "email": { "type": "email", "required": true },
+    "company": { "type": "string" },
+    "role": { "type": "string" },
+    "website": { "type": "string" },
+    "budget": { "type": "string" },
+    "timeline": { "type": "string" },
+    "message": { "type": "text", "required": true },
+    "links": { "type": "text" },
+    "uploadedFiles": { "type": "json" },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "emailed", "failed"],
+      "default": "pending",
+      "required": true
+    },
+    "emailSent": { "type": "boolean", "default": false },
+    "sourceIpHash": { "type": "string" },
+    "userAgent": { "type": "text" },
+    "failureReason": { "type": "text" },
+    "submittedAt": { "type": "datetime", "required": true }
+  }
+}

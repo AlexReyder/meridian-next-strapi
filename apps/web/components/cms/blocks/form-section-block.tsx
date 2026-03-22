@@ -1,5 +1,6 @@
-import type { FormSectionBlock } from '@/types/strapi'
 import type { SiteLocale } from '@/lib/i18n'
+import type { FormSectionBlock } from '@/types/strapi'
+
 import { ProposalForm } from '@/components/cms/blocks/proposal-form'
 
 export function FormSectionBlockView({
@@ -13,33 +14,18 @@ export function FormSectionBlockView({
   pageTitle?: string
   pageSlug?: string
 }) {
+  const textAlign = locale === 'ar' ? 'text-right' : 'text-left'
+
   return (
-    <section
-      id={block.sectionId || undefined}
-      className="px-4 py-16 sm:px-6 lg:px-8"
-    >
-      <div className="mx-auto max-w-3xl rounded-[2rem] border border-border bg-card p-8 shadow-sm">
-        <div className="space-y-4">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            {block.title}
-          </h2>
-
-          {block.description ? (
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-              {block.description}
-            </p>
-          ) : null}
-        </div>
-
-        <div className="mt-8">
-          <ProposalForm
-            block={block}
-            locale={locale}
-            pageTitle={pageTitle}
-            pageSlug={pageSlug}
-          />
-        </div>
+    <section id={block.sectionId} className="mx-auto w-full max-w-5xl px-4 py-14 md:px-6 md:py-20">
+      <div className={`mb-8 space-y-3 ${textAlign}`}>
+        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">{block.title}</h2>
+        {block.description ? (
+          <p className="max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">{block.description}</p>
+        ) : null}
       </div>
+
+      <ProposalForm block={block} locale={locale} pageTitle={pageTitle} pageSlug={pageSlug} />
     </section>
   )
 }
