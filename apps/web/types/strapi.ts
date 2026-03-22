@@ -47,7 +47,7 @@ export interface GlobalSettingsResponse {
 }
 
 export interface HeroTag {
-  id: number
+  id?: number
   label: string
 }
 
@@ -89,7 +89,7 @@ export interface MediaTextBlock {
 }
 
 export interface CardItem {
-  id: number
+  id?: number
   eyebrow?: string
   title: string
   description?: string
@@ -130,7 +130,7 @@ export interface CardsGridBlock {
 }
 
 export interface TextItem {
-  id: number
+  id?: number
   text: string
 }
 
@@ -152,7 +152,7 @@ export interface VideoSectionBlock {
 }
 
 export interface StepItem {
-  id: number
+  id?: number
   number?: string
   title: string
   description?: string
@@ -178,7 +178,7 @@ export interface StatementsStripBlock {
 }
 
 export interface ConceptNavItem {
-  id: number
+  id?: number
   anchorId: string
   label: string
 }
@@ -192,7 +192,7 @@ export interface ConceptNavBlock {
 }
 
 export interface ConceptDetail {
-  id: number
+  id?: number
   label: string
   value: string
 }
@@ -212,7 +212,7 @@ export interface ConceptSectionBlock {
 }
 
 export interface FaqItem {
-  id: number
+  id?: number
   question: string
   answer: string
 }
@@ -251,50 +251,192 @@ export interface FormSectionBlock {
   maxFileSizeMb?: number
 }
 
-type BaseHomeBlock = {
+export interface HomeSimpleItem {
+  id?: number
+  title?: string
+  label?: string
+  secondaryLabel?: string
+  description?: string
+  icon?: string
+  badge?: string
+  challengeLabel?: string
+  challenge?: string
+  structuredLabel?: string
+  structured?: string
+  deliveredLabel?: string
+  delivered?: string
+  imageUrl?: string
+  imageAlt?: string
+  name?: string
+  price?: string
+  timeline?: string
+  includes?: string[]
+  featured?: boolean
+  buttonLabel?: string
+  buttonHref?: string
+  problemLabel?: string
+  problem?: string
+  solutionLabel?: string
+  solution?: string
+  resultLabel?: string
+  result?: string
+  ctaLabel?: string
+  ctaHref?: string
+  question?: string
+  answer?: string
+}
+
+export interface HeroHomeBlock {
+  __component: 'page.hero-home'
   id: number
   sectionId?: string
   isEnabled?: boolean
+  eyebrow?: string
+  titleHtml?: string
+  description?: string
+  supportingText?: string
+  primaryCtaLabel?: string
+  primaryCtaHref?: string
+  secondaryCtaLabel?: string
+  secondaryCtaHref?: string
+  tags?: HeroTag[]
+  primaryImageUrl?: string
+  primaryImageAlt?: string
+  primaryImageLabel?: string
+  secondaryImageUrl?: string
+  secondaryImageAlt?: string
+  secondaryImageLabel?: string
 }
 
-export interface HeroHomeBlock extends BaseHomeBlock {
-  __component: 'page.hero-home'
-}
-export interface ValueHomeBlock extends BaseHomeBlock {
+export interface ValueHomeBlock {
   __component: 'page.value-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  items?: HomeSimpleItem[]
 }
-export interface DeliverablesHomeBlock extends BaseHomeBlock {
+
+export interface DeliverablesHomeBlock {
   __component: 'page.deliverables-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  items?: HomeSimpleItem[]
 }
-export interface WhyHomeBlock extends BaseHomeBlock {
+
+export interface WhyHomeBlock {
   __component: 'page.why-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  description?: string
+  items?: HomeSimpleItem[]
 }
-export interface AudienceHomeBlock extends BaseHomeBlock {
+
+export interface AudienceHomeBlock {
   __component: 'page.audience-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  items?: HomeSimpleItem[]
 }
-export interface ConceptsHomeBlock extends BaseHomeBlock {
+
+export interface ConceptsHomeBlock {
   __component: 'page.concepts-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  ctaLabel?: string
+  ctaHref?: string
+  items?: HomeSimpleItem[]
 }
-export interface MethodHomeBlock extends BaseHomeBlock {
+
+export interface MethodHomeBlock {
   __component: 'page.method-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  description?: string
+  items?: StepItem[]
 }
-export interface PricingHomeBlock extends BaseHomeBlock {
+
+export interface PricingHomeBlock {
   __component: 'page.pricing-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  items?: HomeSimpleItem[]
 }
-export interface ProposalHomeBlock extends BaseHomeBlock {
+
+export interface ProposalHomeBlock {
   __component: 'page.proposal-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  title?: string
+  description?: string
+  buttonLabel?: string
+  buttonHref?: string
+  items?: HomeSimpleItem[]
 }
-export interface SamplePreviewHomeBlock extends BaseHomeBlock {
+
+export interface SamplePreviewHomeBlock {
   __component: 'page.sample-preview-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  description?: string
+  items?: HomeSimpleItem[]
 }
-export interface TrustHomeBlock extends BaseHomeBlock {
+
+export interface TrustHomeBlock {
   __component: 'page.trust-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  description?: string
+  items?: HomeSimpleItem[]
 }
-export interface FaqHomeBlock extends BaseHomeBlock {
+
+export interface FaqHomeBlock {
   __component: 'page.faq-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  title?: string
+  items?: FaqItem[]
 }
-export interface FinalCtaHomeBlock extends BaseHomeBlock {
+
+export interface FinalCtaHomeBlock {
   __component: 'page.final-cta-home'
+  id: number
+  sectionId?: string
+  isEnabled?: boolean
+  eyebrow?: string
+  title?: string
+  description?: string
+  buttonLabel?: string
+  buttonHref?: string
+  secondaryButtonLabel?: string
+  secondaryButtonHref?: string
 }
 
 export type CmsBlock =
@@ -337,6 +479,7 @@ export interface CmsPage {
     | 'method'
     | 'concepts'
     | 'get-proposal'
+    | 'landing'
     | 'generic'
   seo?: SeoComponent | null
   blocks?: CmsBlock[]
@@ -344,7 +487,7 @@ export interface CmsPage {
 
 export interface StrapiSingleResponse<T> {
   data: T
-  meta: Record<string, never>
+  meta: Record<string, unknown>
 }
 
 export interface PageResponse {
