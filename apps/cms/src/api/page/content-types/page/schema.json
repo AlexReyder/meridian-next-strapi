@@ -5,7 +5,7 @@
     "singularName": "page",
     "pluralName": "pages",
     "displayName": "Page",
-    "description": "Localized pages assembled from reusable and page-specific blocks"
+    "description": "Localized pages assembled from Home page specific blocks"
   },
   "options": {
     "draftAndPublish": false
@@ -37,19 +37,8 @@
     },
     "template": {
       "type": "enumeration",
-      "enum": [
-        "home",
-        "solutions",
-        "for-startups",
-        "for-agencies",
-        "pricing",
-        "method",
-        "concepts",
-        "get-proposal",
-        "landing",
-        "generic"
-      ],
-      "default": "generic",
+      "enum": ["home"],
+      "default": "home",
       "required": true
     },
     "seo": {
@@ -66,18 +55,18 @@
       "type": "dynamiczone",
       "components": [
         "page.hero-home",
-        "page.hero",
-        "page.rich-text",
-        "page.media-text",
-        "page.cards-grid",
-        "page.video-section",
-        "page.steps",
-        "page.statements-strip",
-        "page.concept-nav",
-        "page.concept-section",
-        "page.faq",
-        "page.cta",
-        "page.form-section"
+        "page.value-home",
+        "page.deliverables-home",
+        "page.why-home",
+        "page.audience-home",
+        "page.concepts-home",
+        "page.method-home",
+        "page.pricing-home",
+        "page.proposal-home",
+        "page.sample-preview-home",
+        "page.trust-home",
+        "page.faq-home",
+        "page.final-cta-home"
       ],
       "pluginOptions": {
         "i18n": {
