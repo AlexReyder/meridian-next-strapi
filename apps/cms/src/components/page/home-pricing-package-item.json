@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_page_home_pricing_package_items",
+  "info": {
+    "displayName": "Home Pricing Package Item"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "badge": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "timeline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "includes": {
+      "type": "json"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "buttonHref": {
+      "type": "string"
+    }
+  }
+}

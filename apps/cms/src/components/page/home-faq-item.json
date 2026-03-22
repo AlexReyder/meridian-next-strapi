@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_home_faq_items",
+  "info": {
+    "displayName": "Home FAQ Item"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "answer": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

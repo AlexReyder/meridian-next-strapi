@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_page_home_method_step_items",
+  "info": {
+    "displayName": "Home Method Step Item"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "details": {
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_page_audience_homes",
+  "info": {
+    "displayName": "AudienceHome"
+  },
+  "options": {},
+  "attributes": {
+    "sectionId": {
+      "type": "string"
+    },
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-audience-item"
+    }
+  }
+}

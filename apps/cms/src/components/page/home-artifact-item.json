@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_home_artifact_items",
+  "info": {
+    "displayName": "Home Artifact Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "imageAlt": {
+      "type": "string"
+    }
+  }
+}

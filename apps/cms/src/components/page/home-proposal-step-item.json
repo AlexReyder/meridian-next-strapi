@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_home_proposal_step_items",
+  "info": {
+    "displayName": "Home Proposal Step Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "file-text",
+        "mail",
+        "check-circle"
+      ],
+      "default": "file-text"
+    }
+  }
+}

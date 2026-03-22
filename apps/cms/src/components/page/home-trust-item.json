@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_page_home_trust_items",
+  "info": {
+    "displayName": "Home Trust Item"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

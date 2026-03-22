@@ -33,7 +33,7 @@ export async function getGlobalSettings(locale: SiteLocale = DEFAULT_LOCALE) {
   return fetchFromStrapi<StrapiSingleResponse<GlobalSettingsResponse>>(
     `/api/global?locale=${locale}&populate[favicon]=true&populate[menuItems]=true&populate[footerColumns][populate][items]=true&populate[footerLegalLinks]=true&populate[defaultSeo][populate][shareImage]=true`,
     {
-      revalidate: 3600,
+      revalidate: 0,
       tags: [`global:${locale}`],
     },
   )
@@ -56,7 +56,7 @@ export async function getPageBySlug(slug: string, locale: SiteLocale = DEFAULT_L
   })
 
   return fetchFromStrapi<PageResponse>(`/api/pages?${query.toString()}`, {
-    revalidate: 3600,
+    revalidate: 0,
     tags: [`page:${locale}:${slug}`],
   })
 }

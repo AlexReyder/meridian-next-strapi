@@ -485,13 +485,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    headerCtaHref: Schema.Attribute.String;
-    headerCtaLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
     menuItems: Schema.Attribute.Component<'navigation.menu-item', true> &
@@ -515,12 +508,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    siteTagline: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -530,7 +517,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    description: 'Localized pages assembled from reusable blocks';
+    description: 'Localized pages assembled from reusable and page-specific blocks';
     displayName: 'Page';
     pluralName: 'pages';
     singularName: 'page';
@@ -546,6 +533,19 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   attributes: {
     blocks: Schema.Attribute.DynamicZone<
       [
+        'page.hero-home',
+        'page.value-home',
+        'page.deliverables-home',
+        'page.why-home',
+        'page.audience-home',
+        'page.concepts-home',
+        'page.method-home',
+        'page.pricing-home',
+        'page.proposal-home',
+        'page.sample-preview-home',
+        'page.trust-home',
+        'page.faq-home',
+        'page.final-cta-home',
         'page.hero',
         'page.rich-text',
         'page.media-text',

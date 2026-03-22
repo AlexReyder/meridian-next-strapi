@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_page_final_cta_homes",
+  "info": {
+    "displayName": "FinalCtaHome"
+  },
+  "options": {},
+  "attributes": {
+    "sectionId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "primaryButtonLabel": {
+      "type": "string"
+    },
+    "primaryButtonHref": {
+      "type": "string"
+    },
+    "secondaryButtonLabel": {
+      "type": "string"
+    },
+    "secondaryButtonHref": {
+      "type": "string"
+    },
+    "footnote": {
+      "type": "string"
+    }
+  }
+}

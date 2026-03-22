@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_page_home_tag_items",
+  "info": {
+    "displayName": "Home Tag Item"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

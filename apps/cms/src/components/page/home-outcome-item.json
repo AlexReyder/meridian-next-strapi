@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_home_outcome_items",
+  "info": {
+    "displayName": "Home Outcome Item"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "secondaryLabel": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "trending-up",
+        "trophy",
+        "code"
+      ],
+      "default": "code"
+    }
+  }
+}

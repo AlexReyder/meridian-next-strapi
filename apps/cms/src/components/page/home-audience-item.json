@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_page_home_audience_items",
+  "info": {
+    "displayName": "Home Audience Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "problemLabel": {
+      "type": "string"
+    },
+    "problem": {
+      "type": "text"
+    },
+    "solutionLabel": {
+      "type": "string"
+    },
+    "solution": {
+      "type": "text"
+    },
+    "resultLabel": {
+      "type": "string"
+    },
+    "result": {
+      "type": "text"
+    },
+    "ctaLabel": {
+      "type": "string"
+    },
+    "ctaHref": {
+      "type": "string"
+    }
+  }
+}

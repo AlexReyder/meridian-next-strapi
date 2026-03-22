@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_page_home_deliverable_items",
+  "info": {
+    "displayName": "Home Deliverable Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "file-text",
+        "users",
+        "git-branch",
+        "layout-grid",
+        "palette",
+        "mouse-pointer",
+        "layers",
+        "file-check"
+      ],
+      "default": "file-text"
+    }
+  }
+}

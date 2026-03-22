@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_page_proposal_homes",
+  "info": {
+    "displayName": "ProposalHome"
+  },
+  "options": {},
+  "attributes": {
+    "sectionId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-proposal-step-item"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "buttonHref": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

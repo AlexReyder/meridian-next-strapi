@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_trust_homes",
+  "info": {
+    "displayName": "TrustHome"
+  },
+  "options": {},
+  "attributes": {
+    "sectionId": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.home-trust-item"
+    }
+  }
+}
