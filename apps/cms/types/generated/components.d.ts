@@ -43,15 +43,14 @@ export interface NavigationMenuItem extends Struct.ComponentSchema {
 }
 
 export interface PageAudienceHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_audience_homes';
+  collectionName: 'components_page_audience_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'AudienceHome';
   };
   attributes: {
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-audience-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -276,17 +275,14 @@ export interface PageConceptSection extends Struct.ComponentSchema {
 }
 
 export interface PageConceptsHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_concepts_homes';
+  collectionName: 'components_page_concepts_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'ConceptsHome';
   };
   attributes: {
-    ctaHref: Schema.Attribute.String;
-    ctaLabel: Schema.Attribute.String;
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-concept-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -337,15 +333,14 @@ export interface PageCta extends Struct.ComponentSchema {
 }
 
 export interface PageDeliverablesHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_deliverables_homes';
+  collectionName: 'components_page_deliverables_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'DeliverablesHome';
   };
   attributes: {
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-deliverable-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -379,15 +374,14 @@ export interface PageFaq extends Struct.ComponentSchema {
 }
 
 export interface PageFaqHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_faq_homes';
+  collectionName: 'components_page_faq_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'FaqHome';
   };
   attributes: {
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-faq-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -416,19 +410,14 @@ export interface PageFaqItem extends Struct.ComponentSchema {
 }
 
 export interface PageFinalCtaHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_final_cta_homes';
+  collectionName: 'components_page_final_cta_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'FinalCtaHome';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    footnote: Schema.Attribute.String;
-    primaryButtonHref: Schema.Attribute.String;
-    primaryButtonLabel: Schema.Attribute.String;
-    secondaryButtonHref: Schema.Attribute.String;
-    secondaryButtonLabel: Schema.Attribute.String;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -535,94 +524,14 @@ export interface PageHero extends Struct.ComponentSchema {
 }
 
 export interface PageHeroHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_hero_homes';
+  collectionName: 'components_page_hero_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'HeroHome';
-    icon: 'layout';
   };
   attributes: {
-    dashboardBadge: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    dashboardImageAlt: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    dashboardImageUrl: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    eyebrow: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    mobileBadge: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    mobileImageAlt: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    mobileImageUrl: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    primaryCtaHref: Schema.Attribute.String;
-    primaryCtaLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    secondaryCtaHref: Schema.Attribute.String;
-    secondaryCtaLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    supportingText: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    tags: Schema.Attribute.Component<'page.hero-tag', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    titleHtml: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
   };
 }
 
@@ -850,45 +759,38 @@ export interface PageMediaText extends Struct.ComponentSchema {
 }
 
 export interface PageMethodHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_method_homes';
+  collectionName: 'components_page_method_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'MethodHome';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-method-step-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
 export interface PagePricingHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_pricing_homes';
+  collectionName: 'components_page_pricing_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'PricingHome';
   };
   attributes: {
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-pricing-package-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
 export interface PageProposalHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_proposal_homes';
+  collectionName: 'components_page_proposal_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'ProposalHome';
   };
   attributes: {
-    buttonHref: Schema.Attribute.String;
-    buttonLabel: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
-    items: Schema.Attribute.Component<'page.home-proposal-step-item', true>;
-    note: Schema.Attribute.String;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -917,17 +819,14 @@ export interface PageRichText extends Struct.ComponentSchema {
 }
 
 export interface PageSamplePreviewHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_sample_preview_homes';
+  collectionName: 'components_page_sample_preview_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'SamplePreviewHome';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-artifact-item', true>;
-    note: Schema.Attribute.Text;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -1042,26 +941,26 @@ export interface PageTextItem extends Struct.ComponentSchema {
 }
 
 export interface PageTrustHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_trust_homes';
+  collectionName: 'components_page_trust_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'TrustHome';
   };
   attributes: {
-    items: Schema.Attribute.Component<'page.home-trust-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
   };
 }
 
 export interface PageValueHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_value_homes';
+  collectionName: 'components_page_value_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'ValueHome';
   };
   attributes: {
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-outcome-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -1123,16 +1022,14 @@ export interface PageVideoSection extends Struct.ComponentSchema {
 }
 
 export interface PageWhyHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_why_homes';
+  collectionName: 'components_page_why_home';
   info: {
+    description: 'Home page specific section';
     displayName: 'WhyHome';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    eyebrow: Schema.Attribute.String;
-    items: Schema.Attribute.Component<'page.home-pillar-item', true>;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 

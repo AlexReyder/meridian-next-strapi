@@ -1,17 +1,17 @@
 {
-  "collectionName": "components_page_trust_homes",
+  "collectionName": "components_page_trust_home",
   "info": {
-    "displayName": "TrustHome"
+    "displayName": "TrustHome",
+    "description": "Home page specific section"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "items": {
-      "type": "component",
-      "repeatable": true,
-      "component": "page.home-trust-item"
+    "isEnabled": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

@@ -1,33 +1,17 @@
 {
-  "collectionName": "components_page_final_cta_homes",
+  "collectionName": "components_page_final_cta_home",
   "info": {
-    "displayName": "FinalCtaHome"
+    "displayName": "FinalCtaHome",
+    "description": "Home page specific section"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
-    "primaryButtonLabel": {
-      "type": "string"
-    },
-    "primaryButtonHref": {
-      "type": "string"
-    },
-    "secondaryButtonLabel": {
-      "type": "string"
-    },
-    "secondaryButtonHref": {
-      "type": "string"
-    },
-    "footnote": {
-      "type": "string"
+    "isEnabled": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
