@@ -1,8 +1,10 @@
 import type { Core } from '@strapi/strapi'
 import { MERIDIAN_SEED } from './meridian-seed-data'
 import { PHASE_E_PAGES } from './phase-e-pages-seed'
+import { PHASE_F_PAGES } from './phase-f-pages-seed'
 
-type SeedLocale = keyof typeof MERIDIAN_SEED
+type SeedLocale = keyof typeof MERIDIAN_SEED.global
+
 type AdditionalLocale = 'ru' | 'en' | 'ar'
 
 type DocumentServiceResult<T> =
@@ -105,6 +107,14 @@ async function upsertPhaseEPages(strapi: Core.Strapi, locale: AdditionalLocale, 
   }
 }
 
+async function upsertPhaseFPages(strapi: Core.Strapi, locale: AdditionalLocale, overwrite: boolean) {
+  const pagesByLocale = PHASE_F_PAGES?.[locale] ?? []
+
+  for (const page of pagesByLocale) {
+    await upsertPage(strapi, locale, page.slug, page as any, overwrite)
+  }
+}
+
 export async function seedMeridianContent(strapi: Core.Strapi) {
   const overwrite = process.env.CMS_SEED_OVERWRITE === 'true'
   const locales = (process.env.CMS_SEED_LOCALES || 'ru,en,ar')
@@ -113,19 +123,28 @@ export async function seedMeridianContent(strapi: Core.Strapi) {
     .filter(Boolean)
 
   const availablePhaseELocales = PHASE_E_PAGES ? Object.keys(PHASE_E_PAGES) : []
+  const availablePhaseFLocales = PHASE_F_PAGES ? Object.keys(PHASE_F_PAGES) : []
 
   if (!PHASE_E_PAGES) {
     strapi.log.warn('[seed] PHASE_E_PAGES is undefined, phase E pages seeding will be skipped')
   }
 
+  if (!PHASE_F_PAGES) {
+    strapi.log.warn('[seed] PHASE_F_PAGES is undefined, phase F pages seeding will be skipped')
+  }
+
   for (const locale of locales) {
-    if (locale in MERIDIAN_SEED) {
+    if (locale in MERIDIAN_SEED.global) {
       await upsertGlobal(strapi, locale as SeedLocale, overwrite)
       await upsertHomePage(strapi, locale as SeedLocale, overwrite)
     }
 
     if (availablePhaseELocales.includes(locale)) {
       await upsertPhaseEPages(strapi, locale as AdditionalLocale, overwrite)
+    }
+
+    if (availablePhaseFLocales.includes(locale)) {
+      await upsertPhaseFPages(strapi, locale as AdditionalLocale, overwrite)
     }
   }
 }

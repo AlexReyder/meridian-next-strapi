@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { HeroBlock } from '@/types/strapi'
 import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react';
 
 export function HeroBlockView({ block, locale }: { block: HeroBlock; locale: string }) {
   return (
@@ -27,8 +28,9 @@ export function HeroBlockView({ block, locale }: { block: HeroBlock; locale: str
 
             <div className="flex flex-wrap gap-3">
               {block.primaryCtaLabel && block.primaryCtaHref ? (
-                <Button asChild size="lg">
+                <Button asChild size="lg"  className="bg-[#2a2520] text-[#faf9f6] hover:bg-[#3a3530] text-[10px] uppercase tracking-[0.14em] px-6 h-10 rounded-[3px] shadow-sm">
                   <Link href={`/${locale}${block.primaryCtaHref === '/' ? '' : block.primaryCtaHref}`}>{block.primaryCtaLabel}</Link>
+                  {/* <ArrowRight className="ml-2 h-3.5 w-3.5" /> */}
                 </Button>
               ) : null}
               {block.secondaryCtaLabel && block.secondaryCtaHref ? (
