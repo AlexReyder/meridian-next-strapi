@@ -433,7 +433,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
-    description: 'Define global settings';
+    description: 'Localized global site settings';
     displayName: 'Global';
     pluralName: 'globals';
     singularName: 'global';
@@ -447,7 +447,13 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    contactEmail: Schema.Attribute.Email;
+    contactEmail: Schema.Attribute.Email &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

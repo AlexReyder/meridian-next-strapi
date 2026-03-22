@@ -5,7 +5,7 @@
     "singularName": "global",
     "pluralName": "globals",
     "displayName": "Global",
-    "description": "Define global settings"
+    "description": "Localized global site settings"
   },
   "options": {
     "draftAndPublish": false
@@ -41,7 +41,13 @@
       }
     },
     "contactEmail": {
-      "type": "email"
+      "type": "email",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "menuItems": {
       "type": "component",
