@@ -114,10 +114,10 @@ export interface HeroHomeBlock {
   secondaryCtaLabel?: string
   secondaryCtaHref?: string
   tags?: HeroTag[]
-  primaryImageUrl?: string
+  primaryImage?: StrapiImage | null
   primaryImageAlt?: string
   primaryImageLabel?: string
-  secondaryImageUrl?: string
+  secondaryImage?: StrapiImage | null
   secondaryImageAlt?: string
   secondaryImageLabel?: string
 }

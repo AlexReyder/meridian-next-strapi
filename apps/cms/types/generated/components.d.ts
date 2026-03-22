@@ -92,72 +92,6 @@ export interface PageCardItem extends Struct.ComponentSchema {
   };
 }
 
-export interface PageCardsGrid extends Struct.ComponentSchema {
-  collectionName: 'components_page_cards_grids';
-  info: {
-    displayName: 'Cards Grid';
-    icon: 'grid';
-  };
-  attributes: {
-    columns: Schema.Attribute.Enumeration<['2', '3', '4']> &
-      Schema.Attribute.DefaultTo<'3'>;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    eyebrow: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    items: Schema.Attribute.Component<'page.card-item', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    sectionId: Schema.Attribute.String;
-    theme: Schema.Attribute.Enumeration<['light', 'dark', 'muted']> &
-      Schema.Attribute.DefaultTo<'light'>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    variant: Schema.Attribute.Enumeration<
-      [
-        'default',
-        'outcomes',
-        'deliverables',
-        'pillars',
-        'audience',
-        'concepts',
-        'pricing',
-        'solutions-grid',
-        'artifacts',
-        'situations',
-        'efficiency',
-        'projects',
-        'packages',
-        'conversion-paths',
-        'decision-support',
-        'trust',
-      ]
-    > &
-      Schema.Attribute.DefaultTo<'default'>;
-  };
-}
-
 export interface PageConceptDetail extends Struct.ComponentSchema {
   collectionName: 'components_page_concept_details';
   info: {
@@ -174,35 +108,6 @@ export interface PageConceptDetail extends Struct.ComponentSchema {
       }>;
     value: Schema.Attribute.Text &
       Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
-export interface PageConceptNav extends Struct.ComponentSchema {
-  collectionName: 'components_page_concept_navs';
-  info: {
-    displayName: 'Concept Nav';
-    icon: 'apps';
-  };
-  attributes: {
-    items: Schema.Attribute.Component<'page.concept-nav-item', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -229,52 +134,6 @@ export interface PageConceptNavItem extends Struct.ComponentSchema {
   };
 }
 
-export interface PageConceptSection extends Struct.ComponentSchema {
-  collectionName: 'components_page_concept_sections';
-  info: {
-    displayName: 'Concept Section';
-    icon: 'landscape';
-  };
-  attributes: {
-    categoryLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ctaHref: Schema.Attribute.String;
-    ctaLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    details: Schema.Attribute.Component<'page.concept-detail', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Schema.Attribute.Media<'images'>;
-    intro: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    layout: Schema.Attribute.Enumeration<['imageLeft', 'imageRight']> &
-      Schema.Attribute.DefaultTo<'imageLeft'>;
-    sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
 export interface PageConceptsHome extends Struct.ComponentSchema {
   collectionName: 'components_page_concepts_homes';
   info: {
@@ -290,52 +149,6 @@ export interface PageConceptsHome extends Struct.ComponentSchema {
   };
 }
 
-export interface PageCta extends Struct.ComponentSchema {
-  collectionName: 'components_page_ctas';
-  info: {
-    displayName: 'CTA';
-    icon: 'cursor';
-  };
-  attributes: {
-    buttonHref: Schema.Attribute.String;
-    buttonLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    eyebrow: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    secondaryButtonHref: Schema.Attribute.String;
-    secondaryButtonLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    sectionId: Schema.Attribute.String;
-    theme: Schema.Attribute.Enumeration<['light', 'dark']> &
-      Schema.Attribute.DefaultTo<'light'>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
 export interface PageDeliverablesHome extends Struct.ComponentSchema {
   collectionName: 'components_page_deliverables_homes';
   info: {
@@ -346,35 +159,6 @@ export interface PageDeliverablesHome extends Struct.ComponentSchema {
     items: Schema.Attribute.Component<'page.home-deliverable-item', true>;
     sectionId: Schema.Attribute.String;
     title: Schema.Attribute.String;
-  };
-}
-
-export interface PageFaq extends Struct.ComponentSchema {
-  collectionName: 'components_page_faqs';
-  info: {
-    displayName: 'FAQ';
-    icon: 'question';
-  };
-  attributes: {
-    items: Schema.Attribute.Component<'page.faq-item', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
   };
 }
 
@@ -432,52 +216,14 @@ export interface PageFinalCtaHome extends Struct.ComponentSchema {
   };
 }
 
-export interface PageFormSection extends Struct.ComponentSchema {
-  collectionName: 'components_page_form_sections';
+export interface PageHeroHome extends Struct.ComponentSchema {
+  collectionName: 'components_page_hero_home';
   info: {
-    displayName: 'Form Section';
-    icon: 'mail';
+    description: 'Home page specific hero section with editable content and media';
+    displayName: 'HeroHome';
   };
   attributes: {
-    acceptsFiles: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    maxFileSizeMb: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
-    sectionId: Schema.Attribute.String;
-    submitLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    successMessage: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
-export interface PageHero extends Struct.ComponentSchema {
-  collectionName: 'components_page_heroes';
-  info: {
-    displayName: 'Hero';
-    icon: 'landscape';
-  };
-  attributes: {
-    description: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -489,28 +235,61 @@ export interface PageHero extends Struct.ComponentSchema {
           localized: true;
         };
       }>;
-    primaryCtaHref: Schema.Attribute.String;
+    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    primaryCtaHref: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     primaryCtaLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    primaryImage: Schema.Attribute.Media<'images'>;
+    primaryImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    primaryImageAlt: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     primaryImageLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    secondaryCtaHref: Schema.Attribute.String;
+    secondaryCtaHref: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     secondaryCtaLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    secondaryImage: Schema.Attribute.Media<'images'>;
+    secondaryImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    secondaryImageAlt: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     secondaryImageLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -518,46 +297,24 @@ export interface PageHero extends Struct.ComponentSchema {
         };
       }>;
     sectionId: Schema.Attribute.String;
+    supportingText: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     tags: Schema.Attribute.Component<'page.hero-tag', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
+    titleHtml: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-  };
-}
-
-export interface PageHeroHome extends Struct.ComponentSchema {
-  collectionName: 'components_page_hero_home';
-  info: {
-    description: 'Home page specific hero section with editable content and media';
-    displayName: 'HeroHome';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    eyebrow: Schema.Attribute.String;
-    isEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    primaryCtaHref: Schema.Attribute.String;
-    primaryCtaLabel: Schema.Attribute.String;
-    primaryImageAlt: Schema.Attribute.String;
-    primaryImageLabel: Schema.Attribute.String;
-    primaryImageUrl: Schema.Attribute.String;
-    secondaryCtaHref: Schema.Attribute.String;
-    secondaryCtaLabel: Schema.Attribute.String;
-    secondaryImageAlt: Schema.Attribute.String;
-    secondaryImageLabel: Schema.Attribute.String;
-    secondaryImageUrl: Schema.Attribute.String;
-    sectionId: Schema.Attribute.String;
-    supportingText: Schema.Attribute.Text;
-    tags: Schema.Attribute.Component<'page.hero-tag', true>;
-    titleHtml: Schema.Attribute.Text;
   };
 }
 
@@ -752,38 +509,6 @@ export interface PageHomeTrustItem extends Struct.ComponentSchema {
   };
 }
 
-export interface PageMediaText extends Struct.ComponentSchema {
-  collectionName: 'components_page_media_texts';
-  info: {
-    displayName: 'Media + Text';
-    icon: 'picture';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Schema.Attribute.Media<'images'>;
-    imageAlt: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    mediaPosition: Schema.Attribute.Enumeration<['left', 'right']> &
-      Schema.Attribute.DefaultTo<'right'>;
-    sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
 export interface PageMethodHome extends Struct.ComponentSchema {
   collectionName: 'components_page_method_homes';
   info: {
@@ -827,30 +552,6 @@ export interface PageProposalHome extends Struct.ComponentSchema {
   };
 }
 
-export interface PageRichText extends Struct.ComponentSchema {
-  collectionName: 'components_page_rich_texts';
-  info: {
-    displayName: 'Rich Text';
-    icon: 'feather';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
 export interface PageSamplePreviewHome extends Struct.ComponentSchema {
   collectionName: 'components_page_sample_preview_homes';
   info: {
@@ -863,29 +564,6 @@ export interface PageSamplePreviewHome extends Struct.ComponentSchema {
     note: Schema.Attribute.Text;
     sectionId: Schema.Attribute.String;
     title: Schema.Attribute.String;
-  };
-}
-
-export interface PageStatementsStrip extends Struct.ComponentSchema {
-  collectionName: 'components_page_statements_strips';
-  info: {
-    displayName: 'Statements Strip';
-    icon: 'dashboard';
-  };
-  attributes: {
-    items: Schema.Attribute.Component<'page.text-item', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    sectionId: Schema.Attribute.String;
   };
 }
 
@@ -911,51 +589,6 @@ export interface PageStepItem extends Struct.ComponentSchema {
           localized: true;
         };
       }>;
-  };
-}
-
-export interface PageSteps extends Struct.ComponentSchema {
-  collectionName: 'components_page_steps';
-  info: {
-    displayName: 'Steps';
-    icon: 'bulletList';
-  };
-  attributes: {
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    eyebrow: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    items: Schema.Attribute.Component<'page.step-item', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    variant: Schema.Attribute.Enumeration<
-      ['process', 'proposal', 'method', 'checklist']
-    > &
-      Schema.Attribute.DefaultTo<'process'>;
   };
 }
 
@@ -997,63 +630,6 @@ export interface PageValueHome extends Struct.ComponentSchema {
     items: Schema.Attribute.Component<'page.home-outcome-item', true>;
     sectionId: Schema.Attribute.String;
     title: Schema.Attribute.String;
-  };
-}
-
-export interface PageVideoSection extends Struct.ComponentSchema {
-  collectionName: 'components_page_video_sections';
-  info: {
-    displayName: 'Video Section';
-    icon: 'play';
-  };
-  attributes: {
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    eyebrow: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    highlights: Schema.Attribute.Component<'page.text-item', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    note: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    posterImage: Schema.Attribute.Media<'images'>;
-    primaryCtaHref: Schema.Attribute.String;
-    primaryCtaLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    secondaryCtaHref: Schema.Attribute.String;
-    secondaryCtaLabel: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    sectionId: Schema.Attribute.String;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    videoUrl: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1140,20 +716,13 @@ declare module '@strapi/strapi' {
       'navigation.menu-item': NavigationMenuItem;
       'page.audience-home': PageAudienceHome;
       'page.card-item': PageCardItem;
-      'page.cards-grid': PageCardsGrid;
       'page.concept-detail': PageConceptDetail;
-      'page.concept-nav': PageConceptNav;
       'page.concept-nav-item': PageConceptNavItem;
-      'page.concept-section': PageConceptSection;
       'page.concepts-home': PageConceptsHome;
-      'page.cta': PageCta;
       'page.deliverables-home': PageDeliverablesHome;
-      'page.faq': PageFaq;
       'page.faq-home': PageFaqHome;
       'page.faq-item': PageFaqItem;
       'page.final-cta-home': PageFinalCtaHome;
-      'page.form-section': PageFormSection;
-      'page.hero': PageHero;
       'page.hero-home': PageHeroHome;
       'page.hero-tag': PageHeroTag;
       'page.home-artifact-item': PageHomeArtifactItem;
@@ -1168,19 +737,14 @@ declare module '@strapi/strapi' {
       'page.home-proposal-step-item': PageHomeProposalStepItem;
       'page.home-tag-item': PageHomeTagItem;
       'page.home-trust-item': PageHomeTrustItem;
-      'page.media-text': PageMediaText;
       'page.method-home': PageMethodHome;
       'page.pricing-home': PagePricingHome;
       'page.proposal-home': PageProposalHome;
-      'page.rich-text': PageRichText;
       'page.sample-preview-home': PageSamplePreviewHome;
-      'page.statements-strip': PageStatementsStrip;
       'page.step-item': PageStepItem;
-      'page.steps': PageSteps;
       'page.text-item': PageTextItem;
       'page.trust-home': PageTrustHome;
       'page.value-home': PageValueHome;
-      'page.video-section': PageVideoSection;
       'page.why-home': PageWhyHome;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

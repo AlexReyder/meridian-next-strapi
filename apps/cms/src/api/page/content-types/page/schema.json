@@ -4,8 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page",
-    "description": "Localized pages assembled from Home page specific blocks"
+    "displayName": "Page"
   },
   "options": {
     "draftAndPublish": false
@@ -37,37 +36,13 @@
     },
     "template": {
       "type": "enumeration",
-      "enum": ["home"],
-      "default": "home",
+      "enum": ["home", "generic"],
+      "default": "generic",
       "required": true
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.seo",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
     },
     "blocks": {
       "type": "dynamiczone",
-      "components": [
-        "page.hero-home",
-        "page.value-home",
-        "page.deliverables-home",
-        "page.why-home",
-        "page.audience-home",
-        "page.concepts-home",
-        "page.method-home",
-        "page.pricing-home",
-        "page.proposal-home",
-        "page.sample-preview-home",
-        "page.trust-home",
-        "page.faq-home",
-        "page.final-cta-home"
-      ],
+      "components": ["page.hero-home"],
       "pluginOptions": {
         "i18n": {
           "localized": true

@@ -76,6 +76,9 @@ export async function getPageBySlug(
     'populate[blocks][on][page.trust-home]': 'true',
     'populate[blocks][on][page.faq-home]': 'true',
     'populate[blocks][on][page.final-cta-home]': 'true',
+    'populate[blocks][on][page.hero-home][populate][tags]': 'true',
+    'populate[blocks][on][page.hero-home][populate][primaryImage]': 'true',
+    'populate[blocks][on][page.hero-home][populate][secondaryImage]': 'true',
   })
 
   return fetchFromStrapi<PageResponse>(`/api/pages?${query.toString()}`, {

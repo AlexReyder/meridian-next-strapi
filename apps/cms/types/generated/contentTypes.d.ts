@@ -517,7 +517,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    description: 'Localized pages assembled from reusable and page-specific blocks';
     displayName: 'Page';
     pluralName: 'pages';
     singularName: 'page';
@@ -531,23 +530,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<
-      [
-        'page.hero-home',
-        'page.hero',
-        'page.rich-text',
-        'page.media-text',
-        'page.cards-grid',
-        'page.video-section',
-        'page.steps',
-        'page.statements-strip',
-        'page.concept-nav',
-        'page.concept-section',
-        'page.faq',
-        'page.cta',
-        'page.form-section',
-      ]
-    > &
+    blocks: Schema.Attribute.DynamicZone<['page.hero-home']> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -559,12 +542,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -572,20 +549,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    template: Schema.Attribute.Enumeration<
-      [
-        'home',
-        'solutions',
-        'for-startups',
-        'for-agencies',
-        'pricing',
-        'method',
-        'concepts',
-        'get-proposal',
-        'landing',
-        'generic',
-      ]
-    > &
+    template: Schema.Attribute.Enumeration<['home', 'generic']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'generic'>;
     title: Schema.Attribute.String &
