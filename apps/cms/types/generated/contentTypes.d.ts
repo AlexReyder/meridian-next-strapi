@@ -433,8 +433,8 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
-    description: 'Site-wide settings shared across all pages';
-    displayName: 'Global Settings';
+    description: 'Define global settings';
+    displayName: 'Global';
     pluralName: 'globals';
     singularName: 'global';
   };
@@ -447,7 +447,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    contactEmail: Schema.Attribute.Email & Schema.Attribute.Required;
+    contactEmail: Schema.Attribute.Email;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -457,7 +457,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    favicon: Schema.Attribute.Media<'images' | 'files'>;
+    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
     menuItems: Schema.Attribute.Component<'navigation.menu-item', true> &
@@ -474,7 +474,13 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    siteName: Schema.Attribute.String & Schema.Attribute.Required;
+    siteName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -504,6 +510,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page.rich-text',
         'page.media-text',
         'page.cards-grid',
+        'page.steps',
+        'page.statements-strip',
         'page.faq',
         'page.cta',
         'page.form-section',

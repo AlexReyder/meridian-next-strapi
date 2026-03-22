@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_page_ctas",
+  "collectionName": "components_page_steps",
   "info": {
-    "displayName": "CTA",
-    "icon": "cursor"
+    "displayName": "Steps",
+    "icon": "bulletList"
   },
   "options": {},
   "attributes": {
@@ -19,7 +19,6 @@
     },
     "title": {
       "type": "string",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -34,32 +33,21 @@
         }
       }
     },
-    "buttonLabel": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "buttonHref": {
-      "type": "string"
-    },
-    "secondaryButtonLabel": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "secondaryButtonHref": {
-      "type": "string"
-    },
-    "theme": {
+    "variant": {
       "type": "enumeration",
-      "enum": ["light", "dark"],
-      "default": "light"
+      "enum": ["process", "proposal"],
+      "default": "process"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.step-item",
+      "min": 1,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

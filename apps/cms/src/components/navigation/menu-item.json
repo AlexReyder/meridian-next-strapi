@@ -2,7 +2,7 @@
   "collectionName": "components_navigation_menu_items",
   "info": {
     "displayName": "Menu Item",
-    "icon": "bulletList"
+    "icon": "link"
   },
   "options": {},
   "attributes": {

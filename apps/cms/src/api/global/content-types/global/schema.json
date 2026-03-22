@@ -4,8 +4,8 @@
   "info": {
     "singularName": "global",
     "pluralName": "globals",
-    "displayName": "Global Settings",
-    "description": "Site-wide settings shared across all pages"
+    "displayName": "Global",
+    "description": "Define global settings"
   },
   "options": {
     "draftAndPublish": false
@@ -18,12 +18,18 @@
   "attributes": {
     "siteName": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "favicon": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images", "files"]
+      "required": false,
+      "allowedTypes": ["images", "files", "videos"]
     },
     "siteDescription": {
       "type": "text",
@@ -35,8 +41,7 @@
       }
     },
     "contactEmail": {
-      "type": "email",
-      "required": true
+      "type": "email"
     },
     "menuItems": {
       "type": "component",

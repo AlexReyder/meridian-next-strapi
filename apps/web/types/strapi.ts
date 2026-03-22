@@ -31,15 +31,21 @@ export interface GlobalSettingsResponse {
   id: number
   siteName: string
   siteDescription: string
-  contactEmail: string
+  contactEmail?: string
   favicon?: StrapiImage | null
   defaultSeo?: SeoComponent | null
   menuItems?: MenuItem[]
 }
 
+export interface HeroTag {
+  id: number
+  label: string
+}
+
 export interface HeroBlock {
   __component: 'page.hero'
   id: number
+  sectionId?: string
   eyebrow?: string
   title: string
   description?: string
@@ -47,7 +53,11 @@ export interface HeroBlock {
   primaryCtaHref?: string
   secondaryCtaLabel?: string
   secondaryCtaHref?: string
-  image?: StrapiImage | null
+  tags?: HeroTag[]
+  primaryImage?: StrapiImage | null
+  primaryImageLabel?: string
+  secondaryImage?: StrapiImage | null
+  secondaryImageLabel?: string
 }
 
 export interface RichTextBlock {
@@ -71,18 +81,56 @@ export interface MediaTextBlock {
 
 export interface CardItem {
   id: number
+  eyebrow?: string
   title: string
   description?: string
   image?: StrapiImage | null
+  buttonLabel?: string
+  buttonHref?: string
 }
 
 export interface CardsGridBlock {
   __component: 'page.cards-grid'
   id: number
   sectionId?: string
+  eyebrow?: string
   title?: string
   description?: string
+  variant?: 'default' | 'outcomes' | 'deliverables' | 'pillars' | 'audience' | 'concepts' | 'pricing'
+  theme?: 'light' | 'dark' | 'muted'
+  columns?: '2' | '3' | '4'
   items?: CardItem[]
+}
+
+export interface StepItem {
+  id: number
+  number?: string
+  title: string
+  description?: string
+  details?: string[]
+}
+
+export interface StepsBlock {
+  __component: 'page.steps'
+  id: number
+  sectionId?: string
+  eyebrow?: string
+  title?: string
+  description?: string
+  variant?: 'process' | 'proposal'
+  items?: StepItem[]
+}
+
+export interface TextItem {
+  id: number
+  text: string
+}
+
+export interface StatementsStripBlock {
+  __component: 'page.statements-strip'
+  id: number
+  sectionId?: string
+  items?: TextItem[]
 }
 
 export interface FaqItem {
@@ -103,10 +151,14 @@ export interface CtaBlock {
   __component: 'page.cta'
   id: number
   sectionId?: string
+  eyebrow?: string
   title: string
   description?: string
   buttonLabel?: string
   buttonHref?: string
+  secondaryButtonLabel?: string
+  secondaryButtonHref?: string
+  theme?: 'light' | 'dark'
 }
 
 export interface FormSectionBlock {
@@ -126,6 +178,8 @@ export type CmsBlock =
   | RichTextBlock
   | MediaTextBlock
   | CardsGridBlock
+  | StepsBlock
+  | StatementsStripBlock
   | FaqBlock
   | CtaBlock
   | FormSectionBlock

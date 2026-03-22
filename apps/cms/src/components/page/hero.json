@@ -6,6 +6,9 @@
   },
   "options": {},
   "attributes": {
+    "sectionId": {
+      "type": "string"
+    },
     "eyebrow": {
       "type": "string",
       "pluginOptions": {
@@ -53,10 +56,41 @@
     "secondaryCtaHref": {
       "type": "string"
     },
-    "image": {
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.hero-tag",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "primaryImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
+    },
+    "primaryImageLabel": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "secondaryImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "secondaryImageLabel": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_text_items",
+  "info": {
+    "displayName": "Text Item",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

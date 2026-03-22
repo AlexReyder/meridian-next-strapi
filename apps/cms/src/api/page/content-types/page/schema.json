@@ -58,6 +58,8 @@
         "page.rich-text",
         "page.media-text",
         "page.cards-grid",
+        "page.steps",
+        "page.statements-strip",
         "page.faq",
         "page.cta",
         "page.form-section"

@@ -6,6 +6,14 @@
   },
   "options": {},
   "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "title": {
       "type": "string",
       "required": true,
@@ -27,6 +35,17 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
+    },
+    "buttonLabel": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "buttonHref": {
+      "type": "string"
     }
   }
 }

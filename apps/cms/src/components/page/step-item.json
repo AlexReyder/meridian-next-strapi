@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_page_step_items",
+  "info": {
+    "displayName": "Step Item",
+    "icon": "numberedList"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "details": {
+      "type": "json"
+    }
+  }
+}

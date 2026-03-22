@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_page_statements_strips",
+  "info": {
+    "displayName": "Statements Strip",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "sectionId": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.text-item",
+      "min": 1,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

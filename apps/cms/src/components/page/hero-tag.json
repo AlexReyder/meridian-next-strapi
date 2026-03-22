@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_hero_tags",
+  "info": {
+    "displayName": "Hero Tag",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
