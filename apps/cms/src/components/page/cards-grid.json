@@ -35,7 +35,24 @@
     },
     "variant": {
       "type": "enumeration",
-      "enum": ["default", "outcomes", "deliverables", "pillars", "audience", "concepts", "pricing"],
+      "enum": [
+        "default",
+        "outcomes",
+        "deliverables",
+        "pillars",
+        "audience",
+        "concepts",
+        "pricing",
+        "solutions-grid",
+        "artifacts",
+        "situations",
+        "efficiency",
+        "projects",
+        "packages",
+        "conversion-paths",
+        "decision-support",
+        "trust"
+      ],
       "default": "default"
     },
     "theme": {

@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_page_steps",
+  "collectionName": "components_page_video_sections",
   "info": {
-    "displayName": "Steps",
-    "icon": "bulletList"
+    "displayName": "Video Section",
+    "icon": "play"
   },
   "options": {},
   "attributes": {
@@ -33,16 +33,17 @@
         }
       }
     },
-    "variant": {
-      "type": "enumeration",
-      "enum": ["process", "proposal", "method", "checklist"],
-      "default": "process"
+    "videoUrl": {
+      "type": "string",
+      "required": true
     },
-    "items": {
-      "type": "component",
-      "repeatable": true,
-      "component": "page.step-item",
-      "min": 1,
+    "posterImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "note": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true

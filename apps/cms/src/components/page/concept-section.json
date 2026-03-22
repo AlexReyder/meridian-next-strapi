@@ -1,15 +1,15 @@
 {
-  "collectionName": "components_page_steps",
+  "collectionName": "components_page_concept_sections",
   "info": {
-    "displayName": "Steps",
-    "icon": "bulletList"
+    "displayName": "Concept Section",
+    "icon": "landscape"
   },
   "options": {},
   "attributes": {
     "sectionId": {
       "type": "string"
     },
-    "eyebrow": {
+    "categoryLabel": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -19,13 +19,14 @@
     },
     "title": {
       "type": "string",
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "description": {
+    "intro": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -33,21 +34,36 @@
         }
       }
     },
-    "variant": {
-      "type": "enumeration",
-      "enum": ["process", "proposal", "method", "checklist"],
-      "default": "process"
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
     },
-    "items": {
+    "layout": {
+      "type": "enumeration",
+      "enum": ["imageLeft", "imageRight"],
+      "default": "imageLeft"
+    },
+    "details": {
       "type": "component",
       "repeatable": true,
-      "component": "page.step-item",
-      "min": 1,
+      "component": "page.concept-detail",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
+    },
+    "ctaLabel": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "ctaHref": {
+      "type": "string"
     }
   }
 }

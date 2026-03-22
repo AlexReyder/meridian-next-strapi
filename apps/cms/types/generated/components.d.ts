@@ -107,9 +107,135 @@ export interface PageCardsGrid extends Struct.ComponentSchema {
         'audience',
         'concepts',
         'pricing',
+        'solutions-grid',
+        'artifacts',
+        'situations',
+        'efficiency',
+        'projects',
+        'packages',
+        'conversion-paths',
+        'decision-support',
+        'trust',
       ]
     > &
       Schema.Attribute.DefaultTo<'default'>;
+  };
+}
+
+export interface PageConceptDetail extends Struct.ComponentSchema {
+  collectionName: 'components_page_concept_details';
+  info: {
+    displayName: 'Concept Detail';
+    icon: 'apps';
+  };
+  attributes: {
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface PageConceptNav extends Struct.ComponentSchema {
+  collectionName: 'components_page_concept_navs';
+  info: {
+    displayName: 'Concept Nav';
+    icon: 'apps';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'page.concept-nav-item', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    sectionId: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface PageConceptNavItem extends Struct.ComponentSchema {
+  collectionName: 'components_page_concept_nav_items';
+  info: {
+    displayName: 'Concept Nav Item';
+    icon: 'bulletList';
+  };
+  attributes: {
+    anchorId: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface PageConceptSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_concept_sections';
+  info: {
+    displayName: 'Concept Section';
+    icon: 'landscape';
+  };
+  attributes: {
+    categoryLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ctaHref: Schema.Attribute.String;
+    ctaLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    details: Schema.Attribute.Component<'page.concept-detail', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'>;
+    intro: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    layout: Schema.Attribute.Enumeration<['imageLeft', 'imageRight']> &
+      Schema.Attribute.DefaultTo<'imageLeft'>;
+    sectionId: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -473,7 +599,9 @@ export interface PageSteps extends Struct.ComponentSchema {
           localized: true;
         };
       }>;
-    variant: Schema.Attribute.Enumeration<['process', 'proposal']> &
+    variant: Schema.Attribute.Enumeration<
+      ['process', 'proposal', 'method', 'checklist']
+    > &
       Schema.Attribute.DefaultTo<'process'>;
   };
 }
@@ -492,6 +620,43 @@ export interface PageTextItem extends Struct.ComponentSchema {
           localized: true;
         };
       }>;
+  };
+}
+
+export interface PageVideoSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_video_sections';
+  info: {
+    displayName: 'Video Section';
+    icon: 'play';
+  };
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    eyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    note: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    posterImage: Schema.Attribute.Media<'images'>;
+    sectionId: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    videoUrl: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -563,6 +728,10 @@ declare module '@strapi/strapi' {
       'navigation.menu-item': NavigationMenuItem;
       'page.card-item': PageCardItem;
       'page.cards-grid': PageCardsGrid;
+      'page.concept-detail': PageConceptDetail;
+      'page.concept-nav': PageConceptNav;
+      'page.concept-nav-item': PageConceptNavItem;
+      'page.concept-section': PageConceptSection;
       'page.cta': PageCta;
       'page.faq': PageFaq;
       'page.faq-item': PageFaqItem;
@@ -575,6 +744,7 @@ declare module '@strapi/strapi' {
       'page.step-item': PageStepItem;
       'page.steps': PageSteps;
       'page.text-item': PageTextItem;
+      'page.video-section': PageVideoSection;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

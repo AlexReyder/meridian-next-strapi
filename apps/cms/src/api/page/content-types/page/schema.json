@@ -5,7 +5,7 @@
     "singularName": "page",
     "pluralName": "pages",
     "displayName": "Page",
-    "description": "Localized pages assembled from reusable blocks"
+    "description": "Localized pages assembled from reusable blocks with canonical shared slugs"
   },
   "options": {
     "draftAndPublish": false
@@ -31,13 +31,23 @@
       "required": true,
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       }
     },
     "template": {
       "type": "enumeration",
-      "enum": ["home", "landing", "service", "proposal", "generic"],
+      "enum": [
+        "home",
+        "solutions",
+        "for-startups",
+        "for-agencies",
+        "pricing",
+        "method",
+        "concepts",
+        "get-proposal",
+        "generic"
+      ],
       "default": "generic",
       "required": true
     },
@@ -58,8 +68,11 @@
         "page.rich-text",
         "page.media-text",
         "page.cards-grid",
+        "page.video-section",
         "page.steps",
         "page.statements-strip",
+        "page.concept-nav",
+        "page.concept-section",
         "page.faq",
         "page.cta",
         "page.form-section"

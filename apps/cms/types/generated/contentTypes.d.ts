@@ -496,7 +496,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    description: 'Localized pages assembled from reusable blocks';
+    description: 'Localized pages assembled from reusable blocks with canonical shared slugs';
     displayName: 'Page';
     pluralName: 'pages';
     singularName: 'page';
@@ -516,8 +516,11 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page.rich-text',
         'page.media-text',
         'page.cards-grid',
+        'page.video-section',
         'page.steps',
         'page.statements-strip',
+        'page.concept-nav',
+        'page.concept-section',
         'page.faq',
         'page.cta',
         'page.form-section',
@@ -544,11 +547,21 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     template: Schema.Attribute.Enumeration<
-      ['home', 'landing', 'service', 'proposal', 'generic']
+      [
+        'home',
+        'solutions',
+        'for-startups',
+        'for-agencies',
+        'pricing',
+        'method',
+        'concepts',
+        'get-proposal',
+        'generic',
+      ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'generic'>;

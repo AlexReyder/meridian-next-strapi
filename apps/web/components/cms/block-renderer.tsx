@@ -4,8 +4,11 @@ import { HeroBlockView } from '@/components/cms/blocks/hero-block'
 import { RichTextBlockView } from '@/components/cms/blocks/rich-text-block'
 import { MediaTextBlockView } from '@/components/cms/blocks/media-text-block'
 import { CardsGridBlockView } from '@/components/cms/blocks/cards-grid-block'
+import { VideoSectionBlockView } from '@/components/cms/blocks/video-section-block'
 import { StepsBlockView } from '@/components/cms/blocks/steps-block'
 import { StatementsStripBlockView } from '@/components/cms/blocks/statements-strip-block'
+import { ConceptNavBlockView } from '@/components/cms/blocks/concept-nav-block'
+import { ConceptSectionBlockView } from '@/components/cms/blocks/concept-section-block'
 import { FaqBlockView } from '@/components/cms/blocks/faq-block'
 import { CtaBlockView } from '@/components/cms/blocks/cta-block'
 import { FormSectionBlockView } from '@/components/cms/blocks/form-section-block'
@@ -23,10 +26,16 @@ export function BlockRenderer({ blocks = [], locale }: { blocks?: CmsBlock[]; lo
             return <MediaTextBlockView key={blockKey(block, index)} block={block} />
           case 'page.cards-grid':
             return <CardsGridBlockView key={blockKey(block, index)} block={block} locale={locale} />
+          case 'page.video-section':
+            return <VideoSectionBlockView key={blockKey(block, index)} block={block} />
           case 'page.steps':
             return <StepsBlockView key={blockKey(block, index)} block={block} />
           case 'page.statements-strip':
             return <StatementsStripBlockView key={blockKey(block, index)} block={block} />
+          case 'page.concept-nav':
+            return <ConceptNavBlockView key={blockKey(block, index)} block={block} />
+          case 'page.concept-section':
+            return <ConceptSectionBlockView key={blockKey(block, index)} block={block} locale={locale} />
           case 'page.faq':
             return <FaqBlockView key={blockKey(block, index)} block={block} />
           case 'page.cta':

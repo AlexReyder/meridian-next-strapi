@@ -1,5 +1,5 @@
 import type { GlobalSettingsResponse, PageResponse, StrapiSingleResponse } from '@/types/strapi'
-import { DEFAULT_LOCALE, type SiteLocale } from '@/lib/i18n'
+import { DEFAULT_LOCALE, type SiteLocale } from '@/lib/routing'
 
 const STRAPI_URL = process.env.STRAPI_URL || process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'
 const STRAPI_TOKEN = process.env.STRAPI_TOKEN
@@ -48,6 +48,8 @@ export async function getPageBySlug(slug: string, locale: SiteLocale = DEFAULT_L
     'populate[blocks][on][page.hero][populate][secondaryImage]': 'true',
     'populate[blocks][on][page.media-text][populate][image]': 'true',
     'populate[blocks][on][page.cards-grid][populate][items][populate][image]': 'true',
+    'populate[blocks][on][page.video-section][populate][posterImage]': 'true',
+    'populate[blocks][on][page.concept-section][populate][image]': 'true',
   })
 
   return fetchFromStrapi<PageResponse>(`/api/pages?${query.toString()}`, {

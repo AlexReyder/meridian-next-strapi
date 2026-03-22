@@ -96,10 +96,38 @@ export interface CardsGridBlock {
   eyebrow?: string
   title?: string
   description?: string
-  variant?: 'default' | 'outcomes' | 'deliverables' | 'pillars' | 'audience' | 'concepts' | 'pricing'
+  variant?:
+    | 'default'
+    | 'outcomes'
+    | 'deliverables'
+    | 'pillars'
+    | 'audience'
+    | 'concepts'
+    | 'pricing'
+    | 'solutions-grid'
+    | 'artifacts'
+    | 'situations'
+    | 'efficiency'
+    | 'projects'
+    | 'packages'
+    | 'conversion-paths'
+    | 'decision-support'
+    | 'trust'
   theme?: 'light' | 'dark' | 'muted'
   columns?: '2' | '3' | '4'
   items?: CardItem[]
+}
+
+export interface VideoSectionBlock {
+  __component: 'page.video-section'
+  id: number
+  sectionId?: string
+  eyebrow?: string
+  title?: string
+  description?: string
+  videoUrl: string
+  posterImage?: StrapiImage | null
+  note?: string
 }
 
 export interface StepItem {
@@ -117,7 +145,7 @@ export interface StepsBlock {
   eyebrow?: string
   title?: string
   description?: string
-  variant?: 'process' | 'proposal'
+  variant?: 'process' | 'proposal' | 'method' | 'checklist'
   items?: StepItem[]
 }
 
@@ -131,6 +159,40 @@ export interface StatementsStripBlock {
   id: number
   sectionId?: string
   items?: TextItem[]
+}
+
+export interface ConceptNavItem {
+  id: number
+  anchorId: string
+  label: string
+}
+
+export interface ConceptNavBlock {
+  __component: 'page.concept-nav'
+  id: number
+  sectionId?: string
+  title?: string
+  items?: ConceptNavItem[]
+}
+
+export interface ConceptDetail {
+  id: number
+  label: string
+  value: string
+}
+
+export interface ConceptSectionBlock {
+  __component: 'page.concept-section'
+  id: number
+  sectionId?: string
+  categoryLabel?: string
+  title: string
+  intro?: string
+  image?: StrapiImage | null
+  layout?: 'imageLeft' | 'imageRight'
+  details?: ConceptDetail[]
+  ctaLabel?: string
+  ctaHref?: string
 }
 
 export interface FaqItem {
@@ -178,8 +240,11 @@ export type CmsBlock =
   | RichTextBlock
   | MediaTextBlock
   | CardsGridBlock
+  | VideoSectionBlock
   | StepsBlock
   | StatementsStripBlock
+  | ConceptNavBlock
+  | ConceptSectionBlock
   | FaqBlock
   | CtaBlock
   | FormSectionBlock
@@ -188,7 +253,16 @@ export interface CmsPage {
   id: number
   title: string
   slug: string
-  template: 'home' | 'landing' | 'service' | 'proposal' | 'generic'
+  template:
+    | 'home'
+    | 'solutions'
+    | 'for-startups'
+    | 'for-agencies'
+    | 'pricing'
+    | 'method'
+    | 'concepts'
+    | 'get-proposal'
+    | 'generic'
   seo?: SeoComponent | null
   blocks?: CmsBlock[]
 }
